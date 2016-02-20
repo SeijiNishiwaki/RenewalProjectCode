@@ -1,0 +1,116 @@
+include ../mixins/flash-messages
+
+script(type='text/javascript').
+	var localData =!{JSON.stringify(data)}
+script(src='/js/jquery/jquery-1.11.2.min.js')
+script(src='/js/pi/googleMaps.js')
+-var languageIso = ''
+	if header.filters.language.iso
+		-languageIso = "&languageIso=" + header.filters.language.iso
+mixin cityTopBackground(city)
+	if city.destinationPagePhoto
+		.l-headerarea(style="background-image: url(#{city.destinationPagePhoto.picture.url});")
+			h1.l-headerarea-title #{city.cityInfos[0].content}
+
+doctype html
+html
+	include ../layouts/common/header
+	body#destination
+		#drawer-container
+			include ../layouts/common/drawer
+			if data.cities.length
+				+cityTopBackground(data.cities[0])
+
+
+
+			//- ==================
+			//- 	mixin
+			//- ==================
+
+			mixin m-section-header()
+				.m-section-header.row
+					if title
+						.section-header-title.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+							h2.pull-left #{title}
+							if link
+								div.pull-right.text-right.hidden-xs
+									a #{link}
+					if text
+						.section-header-text.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+							p #{text}
+					if link
+						.section-header-link.col.col-lg-6.col-md-6.col-sm-6.col-xs-12.hidden-lg.hidden-md.hidden-sm
+							a #{link}
+
+
+			mixin m-media(imgName,title,caption,text,linkText,linkPath)
+				.m-media
+					if imgName
+						img.img-responsive(src="../images/photos/#{imgName}")
+					if caption === true
+						if title
+							h3.media-caption #{title}
+					else
+						if title
+							h3 #{title}
+					if text
+						p #{text}
+					if linkText
+						a.media-link(href="#{linkPath}")
+							| #{linkText}
+
+			.container
+				//- ==========================
+				//- 	col設計変更に対応
+				//- ==========================
+				.row
+					.col.col-lg-12.col-md-10.col-sm-10.col-xs-12.col-lg-offset-0.col-sm-offset-1
+						//about and weather
+						include ../layouts/destinations/destination_about
+						//hotel maps
+						include ../layouts/destinations/destination_map
+						hr
+						//around the city
+						include ../layouts/destinations/destination_aroundTheCity
+						hr
+						//popular attractions
+						include ../layouts/index/index_attraction
+
+
+
+			#site-sub-footer
+				.container
+					.row
+						.col.col-lg-12.col-md-10.col-sm-10.col-xs-12.col-lg-offset-0.col-sm-offset-1
+							//other cities
+							include ../layouts/index/index_destination
+
+
+
+
+
+
+			include ../layouts/common/footer
+			include ../layouts/common/js
+			script.
+				var win       = $(window),
+					sp        = 768,
+					wrapperSP = $('.m-sub-section-wrapper-sp'),
+					wrapperPC = $('.m-sub-section-wrapper-pc');
+
+				var wrapperChange = function(){
+					var winWidth = win.innerWidth();
+					if(winWidth > sp){
+						console.log('PC');
+						$(wrapperPC).addClass('clearfix');
+						$(wrapperSP).removeClass('clearfix');
+					}else{
+						console.log('SP');
+						$(wrapperPC).removeClass('clearfix');
+						$(wrapperSP).addClass('clearfix');
+					}
+				};
+
+				win.on('load resize',function(){
+					wrapperChange();
+				});

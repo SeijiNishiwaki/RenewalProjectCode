@@ -1,0 +1,200 @@
+include ../mixins/flash-messages
+include ../mixins/mixins.jade
+script(type='text/javascript').
+	var localData =!{JSON.stringify(data)}
+script(src='/js/jquery/jquery-1.11.2.min.js')
+// -> views/index.jade
+doctype html
+html
+	include ../layouts/common/header
+	body#brand-top
+		#drawer-container
+			include ../layouts/common/drawer
+
+			.container-fluid
+				.l-header.row
+					.fluid-photos.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+						.l-headerarea
+							img.img-responsive.center-block(src="../images/photos/#{id}_top.jpg")
+							include ../layouts/parts/rsv_module
+							.top-mess.text-center
+								h1.header May we assist you?
+								p No matter where you visit Japan, <br>our service ensures a memorable experience.
+								a Learn More
+			.container
+				.row
+					.col.col-lg-8.col-md-8.col-sm-8.col-xs-12
+
+						.l-section.row
+							.l-sub-section.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+								- var title = "Special Offers";
+								- var link  = "More Special Offers";
+								- var text = null;
+								+m-section-header(title,link,text,linkText,linkPath)
+							.l-sub-section.l-sub-section-contents.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+								.m-section.row
+									.m-sub-section.col.col-lg-6.col-md-6.col-sm-6.col-xs-6
+										- var imgName = "wifi_can.jpg";
+										- var title = null;
+										- var caption = false;
+										- var subTitle = null
+										- var text = "Free Wi-Fi Routers Campaign"
+										- var linkText = "Learn More";
+										- var linkPath = "#";
+										- var imgLinkPath = "#";
+										+m-media(imgName,imgLinkPath,alt,title,caption,subTitle,text,linkText,linkPath)
+									.m-sub-section.col.col-lg-6.col-md-6.col-sm-6.col-xs-6
+										- var imgName = "img_cp_uber_en.jpg";
+										- var title = null;
+										- var caption = false;
+										- var subTitle = null
+										- var text = "Free chance to try out Uber car service!"
+										- var linkText = "Learn More";
+										- var linkPath = "#";
+										- var imgLinkPath = "#";
+										+m-media(imgName,imgLinkPath,alt,title,caption,subTitle,text,linkText,linkPath)
+					.col.col-lg-4.col-md-4.col-sm-4.col-xs-12
+						.l-section.separator-left.row
+							.l-sub-section.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+								- var title = "News";
+								- var link  = "More News";
+								- var text = null;
+								+m-section-header(title,link,text,linkText,linkPath)
+							.l-sub-section.l-sub-section-contents.col.col-lg-12.col-md-12.col-sm-12.col-xs-6.hidden-sm.hidden-md.hidden-lg
+								img.img-responsive(src="/images/photos/popularattraction@2x.png" alt="...")
+							.l-sub-section.l-sub-section-contents.col.col-lg-12.col-md-12.col-sm-12.col-xs-6
+								.news
+									p Lorem ipsum dolor sit amet,consectetur adipiscing elit.
+									a(href="#") Learn more
+								.news.hidden-xs
+									p Lorem ipsum dolor sit amet,consectetur adipiscing elit.
+									a(href="#") Learn more
+								.news.hidden-xs.no-border
+									p Lorem ipsum dolor sit amet,consectetur adipiscing elit.
+									a(href="#") Learn more
+				hr.hr.hidden-xs
+
+
+
+
+				.l-section.row
+					.l-sub-section.col.col-lg-12.col-md-12.col.sm-12.col-xs-12
+						- var title = "Popular Destinations";
+						- var link  = "Browse All Destinations";
+						- var text = "Find out what the best destinations in Japan are";
+						+m-section-header(title,link,text,linkText,linkPath)
+					.l-sub-section.l-sub-section-contents.col.col-lg-12.col-md-12.col.sm-12.col-xs-12
+						.m-section.row
+							.m-sub-section.col.col-lg-4.col-md-4.col-sm-4.col-xs-12
+								- var imgName = "popularcity@2x.png";
+								- var title = "Tokyo";
+								- var caption = true;
+								- var subTitle = null
+								- var text = null;
+								- var linkText = null;
+								- var linkPath = "#";
+								- var imgLinkPath = "#";
+								+m-media(imgName,imgLinkPath,alt,title,caption,subTitle,text,linkText,linkPath)
+							.m-sub-section.col.col-lg-4.col-md-4.col-sm-4.col-xs-12
+								- var imgName = "popularcity_2@2x.png";
+								- var title = "Kyoto";
+								- var caption = true;
+								- var subTitle = null
+								- var text = null;
+								- var linkText = null;
+								- var linkPath = "#";
+								- var imgLinkPath = "#";
+								+m-media(imgName,imgLinkPath,alt,title,caption,subTitle,text,linkText,linkPath)
+							.m-sub-section.col.col-lg-4.col-md-4.col-sm-4.col-xs-12
+								- var imgName = "popularcity_3@2x.png";
+								- var title = "Kanazawa";
+								- var caption = true;
+								- var subTitle = null
+								- var text = null;
+								- var linkText = null;
+								- var linkPath = "#";
+								- var imgLinkPath = "#";
+								+m-media(imgName,imgLinkPath,alt,title,caption,subTitle,text,linkText,linkPath)
+				hr.hr.hidden-xs
+				.l-section.row
+					.l-sub-section.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+						.m-section.row
+							.m-sub-section.col.col-lg-4.col-md-4.col-sm-4.col-xs-12
+								- var title = "Popular Hotels";
+								- var link  = "Browse All Destinations";
+								- var text = "Centered in major cities that connect Japan to the rest of the world.";
+								+m-section-header(title,link,text,linkText,linkPath)
+					.l-sub-section.l-sub-section-contents.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+						.m-section.row
+							.m-sub-section-wrapper-pc
+								.m-sub-section.col.col-lg-6.col-md-6.col-sm-6.col-xs-12
+									img.img-responsive(src="/images/photos/popularhotel@2x.png" alt="photo")
+									ul.list-unstyled.hotel-info-list
+										li.brand HOTEL MYSTAYS
+										li HANEDA
+										li From ¥10,000/night
+								.m-sub-section.col.col-lg-6.col-md-6.col-sm-6.col-xs-12
+									img.img-responsive(src="/images/photos/popularhotel_2@2x.png" alt="photo")
+									ul.list-unstyled.hotel-info-list
+										li.brand HOTEL MYSTAYS
+										li KANAZAWA
+										li From ¥10,000/night
+							.m-sub-section-wrapper-pc
+								.m-sub-section.col.col-lg-6.col-md-6.col-sm-6.col-xs-12
+									img.img-responsive(src="/images/photos/popularhotel_3@2x.png" alt="photo")
+									ul.list-unstyled.hotel-info-list
+										li.brand HOTEL MYSTAYS
+										li HAMAMATSUCHO
+										li From ¥10,000/night
+								.m-sub-section.col.col-lg-6.col-md-6.col-sm-6.col-xs-12
+									img.img-responsive(src="/images/photos/popularhotel_4@2x.png" alt="photo")
+									ul.list-unstyled.hotel-info-list
+										li.brand HOTEL MYSTAYS
+										li ASAKUSABASHI
+										li From ¥10,000/night
+				hr.hr.hidden-xs
+				.l-section.row
+					.l-sub-section.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+						- var title = "Popular Attractions";
+						- var link  = "Browse All Attractions";
+						- var text = "Find out Japan's Most Popular Tourist Attractions";
+						+m-section-header(title,link,text,linkText,linkPath)
+					.l-sub-section.l-sub-section-contents.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+						.m-section.row
+							.m-sub-section.col.col-lg-4.col-md-4.col-sm-4.col-xs-12
+								- var imgName = "_MG_3499.jpg";
+								- var imgLinkPath = "#";
+								- var alt = "photo";
+								- var title = "Omotesando";
+								- var caption = false;
+								- var subTitle = null;
+								- var text = "Harajuku is a cultural heaven for Tokyo's youth. Omotesando has stylish shops excellent for shopping while taking a stroll.";
+								- var linkText = "Learn More";
+								- var linkPath = "#";
+								+m-media(imgName,imgLinkPath,alt,title,caption,subTitle,text,linkText,linkPath)
+							.m-sub-section.col.col-lg-4.col-md-4.col-sm-4.col-xs-12
+								- var imgName = "_MG_3623.jpg";
+								- var imgLinkPath = "#";
+								- var alt = "photo";
+								- var title = "Asakusa";
+								- var caption = false;
+								- var subTitle = null;
+								- var text = "Tokyo's largest ancient Buddhist temple and a major Tokyo attraction";
+								- var linkText = "Learn More";
+								- var linkPath = "#";
+								+m-media(imgName,imgLinkPath,alt,title,caption,subTitle,text,linkText,linkPath)
+							.m-sub-section.col.col-lg-4.col-md-4.col-sm-4.col-xs-12
+								- var imgName = "_MG_2882.jpg";
+								- var imgLinkPath = "#";
+								- var alt = "photo";
+								- var title = "Shibuya";
+								- var caption = false;
+								- var subTitle = null;
+								- var text = "Take a few moments to watch Shibuya  “scramble” crosswalk";
+								- var linkText = "Learn More";
+								- var linkPath = "#";
+								+m-media(imgName,imgLinkPath,alt,title,caption,subTitle,text,linkText,linkPath)
+
+
+			include ../layouts/common/footer
+			include ../layouts/common/js

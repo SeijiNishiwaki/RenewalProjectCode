@@ -1,0 +1,30 @@
+
+if data.cities.length > 0
+	.row.rowSeparator6.contentRow.destinationListPadding
+		.col-lg-12.col-md-12.col-sm-12.col-xs-12.fixOverlayDiv
+			a(href = "destination?cityId="+ data.cities[0]._id + languageIso)
+				img(src=resizeCloudinaryUrl(data.cities[0].destinationListPhoto.picture.url,916,380))
+			.col.destinationListOverlayText
+				h1 #{data.cities[0].cityInfos[0].content}
+				p #{data.cities[0].cityInfos[0].destinationListContent}
+	-var i = 1
+	while i < data.cities.length 
+		.row.rowSeparator6.contentRow.destinationListNoPadding
+			if (data.cities[i].destinationListPhoto)
+				.col-lg-6.col-md-6.col-sm-6.col-xs-6.destinationListPicturePaddingLeft
+					a(href = "destination?cityId="+ data.cities[i]._id + languageIso)
+						img(src=resizeCloudinaryUrl(data.cities[i].destinationListPhoto.picture.url,455,303))
+					.col.destinationListOverlayText()
+						h1 #{data.cities[i].cityInfos[0].content}
+						p #{data.cities[i].cityInfos[0].destinationListContent}
+			-i++
+			if (data.cities[i].destinationListPhoto)
+				.col-lg-6.col-md-6.col-sm-6.col-xs-6.destinationListPicturePaddingRight
+					a(href = "destination?cityId="+ data.cities[i]._id + languageIso)
+						img.img-responsive.mednodia-image(src=resizeCloudinaryUrl(data.cities[i].destinationListPhoto.picture.url,455,303))
+					.col.destinationListOverlayText
+						h1 #{data.cities[i].cityInfos[0].content}
+						p #{data.cities[i].cityInfos[0].destinationListContent}
+		-i++
+				
+		

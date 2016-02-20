@@ -1,0 +1,21 @@
+mixin renderNearestHotels(property)
+	.col-lg-4.col-md-4.col-sm-4.col-xs-4
+		ul.list-inline.detail-list
+			li(style='display:inline-block; padding-bottom :42px;')
+				a(href="/hotel?hotelId=" + property._id + languageIso )
+					img.media-image.img-responsive(src=resizeCloudinaryUrl(property.topPagePhoto.url,289,190))
+				ul.list-unstyled.hotel-info-list
+					li.brand #{property.brands[0].brandInfos[0].content}
+					a(href="/hotel?hotelId=" + data.nearestProperties[0]._id + languageIso)
+						li #{property.propertyInfos[0].content}
+
+if data.nearestProperties.length > 0
+	.row.rowSeparator17
+			.col-lg-12.col-md-12.col-sm-12.col-xs-12
+				h2.header-title Hotels Nearby
+	.row
+		-var i = 0
+		while i < 3
+			if data.nearestProperties[i]
+				+renderNearestHotels(data.nearestProperties[i])
+			-i++

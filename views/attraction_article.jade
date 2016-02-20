@@ -1,0 +1,121 @@
+include ../mixins/flash-messages
+include ../mixins/mixins.jade
+doctype html
+html
+	include ../layouts/common/header
+	body#attraction-article
+		#drawer-container
+			include ../layouts/common/drawer
+			.container
+				.l-header.row
+					.l-sub-section.col.col-lg-10.col-md-12.col-sm-12.col-xs-12.col-lg-offset-1
+						.m-title-area.text-center
+							h1.title Attraction Title
+							p.title-area-timestamp October 6th,2015
+							p.title-area-auther By Allie Tan
+							p.text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text
+			.container
+				.l-section.row
+					.l-sub-section.col.col-lg-10.col-md-10.col-sm-10.col-xs-12.col-sm-offset-1
+						.m-section.row
+							.m-sub-section.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+								- var imgName = "2882.jpg";
+								- var imgLinkPath = "#";
+								- var alt = "photo";
+								- var label = "Mystays haneda";
+								- var title = null;
+								- var subTitle = null;
+								- var text = null;
+								- var linkText = null;
+								- var linkPath = null;
+								+m-media-A(imgName,imgLinkPath,alt,label,title,subTitle,text,linkText,linkPath)
+							.m-sub-section.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+								h2.text-area-title title
+								p.text-area-text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text
+							.m-sub-section.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+								h2.text-area-title title
+								p.text-area-text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text
+							.m-sub-section.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+								- var imgName = "2882.jpg";
+								- var imgLinkPath = "#";
+								- var alt = "photo";
+								- var label = "Mystays haneda";
+								- var title = null;
+								- var subTitle = null;
+								- var text = null;
+								- var linkText = null;
+								- var linkPath = null;
+								+m-media-A(imgName,imgLinkPath,alt,label,title,subTitle,text,linkText,linkPath)
+							.m-sub-section.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+								h2.text-area-title title
+								p.text-area-text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text
+							.m-sub-section.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+								h2.text-area-title title
+								p.text-area-text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text
+							.m-sub-section.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+								h2.text-area-title title
+								p.text-area-text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text
+							ul.m-brought-to-you-by.m-sub-section.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+								li.li Article brought to you by: <img src="../images/logo/japantravel.gif">
+								li.li Share Article:
+				hr.hr.hr-col-10
+				.l-section.row
+					.l-sub-section.col.col-lg-10.col-md-10.col-sm-10.col-xs-12.col-sm-offset-1
+						- var title = "More Articles";
+						+m-section-header-center(title,text)
+					.l-sub-section.l-sub-section-contents.col.col-lg-10.col-md-10.col-sm-10.col-xs-12.col-sm-offset-1
+						.m-section.m-img-list.row
+							.m-sub-section.image-list-img.col.col-lg-5.col-md-5.col-sm-5.col-xs-12
+								a(href="/hotel?hotelId=")
+								img.img-responsive(src="../images/photos/front_maihama.jpg")
+							.m-sub-section.m-img-list-contents.col.col-lg-7.col-md-7.col-sm-7.col-xs-12
+								p.timestamp.gray octorber 6th, 2015
+								p.title Title
+								p.tags.darkgray tag
+								a Read More
+						.m-section.m-img-list.row
+							.m-sub-section.image-list-img.col.col-lg-5.col-md-5.col-sm-5.col-xs-12
+								a(href="/hotel?hotelId=")
+								img.img-responsive(src="../images/photos/front_maihama.jpg")
+							.m-sub-section.m-img-list-contents.col.col-lg-7.col-md-7.col-sm-7.col-xs-12
+								p.timestamp.gray octorber 6th, 2015
+								p.title Title
+								p.tags.darkgray tag
+								a Read More
+				hr.hr
+				.l-section.row
+					.l-sub-section.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+						- var title = "More Articles";
+						+m-section-header-center(title,text)
+					.l-sub-section.l-sub-section-contents.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+						.m-section.row
+							.m-sub-section.col.col-lg-4.col-md-4.col-sm-4.col-xs-12
+								.m-media-wrapper
+									.m-media.m-media-nearby
+										a(href="#")
+											img.media-image.img-responsive(src="../images/photos/popularhotel@2x.png" ,alt="alt-text")
+										p.media-brand HOTEL MYSTAYS
+											//- span.media-time.pull-right #{time}
+										h3: a.media-title.media-name.media-link(src="#") Haneda
+										p.media-price From ￥10,000/night
+							.m-sub-section.col.col-lg-4.col-md-4.col-sm-4.col-xs-12
+								.m-media-wrapper
+									.m-media.m-media-nearby
+										a(href="#")
+											img.media-image.img-responsive(src="../images/photos/popularhotel@2x.png" ,alt="alt-text")
+										p.media-brand HOTEL MYSTAYS
+											//- span.media-time.pull-right #{time}
+										h3: a.media-title.media-name.media-link(src="#") Haneda
+										p.media-price From ￥10,000/night
+							.m-sub-section.col.col-lg-4.col-md-4.col-sm-4.col-xs-12
+								.m-media-wrapper
+									.m-media.m-media-nearby
+										a(href="#")
+											img.media-image.img-responsive(src="../images/photos/popularhotel@2x.png" ,alt="alt-text")
+										p.media-brand HOTEL MYSTAYS
+											//- span.media-time.pull-right #{time}
+										h3: a.media-title.media-name.media-link(src="#") Haneda
+										p.media-price From ￥10,000/night
+			include ../layouts/common/footer
+			include ../layouts/common/js
+			<script type="text/javascript" src="/js/jquery/jquery.event.move.js"></script>

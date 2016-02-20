@@ -1,0 +1,17 @@
+mixin renderMoreAttractions(attraction)
+	.row.rowSeparator17
+		.col-lg-offset-2.col-md-offset-2.col-sm-offset-2.col-xs-offset-2.col-lg-4.col-md-4.col-sm-4.col-xs-4
+			img(src=resizeCloudinaryUrl(attraction.attractionListPhoto.picture.url,289,190))
+		.col-lg-4.col-md-4.col-sm-4.col-xs-4
+			p date (no dates yet)
+			h3 #{attraction.attractionInfos[0].content}
+			p tags
+			a(href = "attraction?attractionId="+ attraction._id + languageIso)
+				p Read More	
+				
+if data.nearestAttractions.length	
+	.row.rowSeparator17
+		.col-lg-offset-2.col-md-offset-2.col-sm-offset-2.col-xs-offset-2.col-lg-8.col-md-8.col-sm-8.col-xs-8
+			More Articles
+	each attraction in data.nearestAttractions
+		+renderMoreAttractions(attraction)

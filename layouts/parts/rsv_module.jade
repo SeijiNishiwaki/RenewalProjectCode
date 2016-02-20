@@ -1,0 +1,40 @@
+//script(src='/js/pi/reservationDropDown.js')
+script(src='/js/jquery/jquery-1.11.2.min.js')
+script(src='/js/pi/reservationDropDown.js')
+script(type='text/javascript').
+	var localReservation =!{JSON.stringify(reservation)}
+	var localHeader =!{JSON.stringify(header)}
+
+mixin city(city)
+	if city.cityInfos.length
+		-var name = "selector"
+		li(class=name, id= city.name) #{city.cityInfos[0].name}
+			//span.glyphicon.glyphicon-menu-right(aria-hidden="true")
+
+mixin hotels(city,hotels,active)
+	-var statusAttribute = 'pull-left block r-border'
+	-var styleAttribute = 'display:none'
+	if active==true
+		-statusAttribute = 'active'
+		-styleAttribute = ''	
+
+mixin cityHotels(cityHotels)
+	-var i = 0	
+	.block.r-border
+		ul(class="list-unstyled dropdown-links" id = "dropdownCity")
+			while i < cityHotels.length
+				+city(cityHotels[i].city)
+				-i++
+	-i=0
+	
+
+div(id="rsv-module",class="btn-group btn-wrapper hidden-md hidden-sm hidden-xs",role="group",aria-label="...")
+	div(class="btn-group group1",role="group")
+		input(id="selCities" value= "Select City Property..." )
+	div(class="btn-group group2")
+		input(id="dteCheckIn" value= "Check In" style="textwidth:147px; height:47px" )
+	div(class="btn-group group2")
+		input(id="dteCheckOut" value= "Check Out" style="text-indent:18px; width:147px; height:47px" )
+	div(class="btn-group group4")
+		input(id="selNumAdults" value= "# Adults"  )
+	button(id="btnCheckRates",type="button",class="btn btn-black group5") Check Rates

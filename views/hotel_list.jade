@@ -1,0 +1,80 @@
+include ../mixins/flash-messages
+include ../mixins/mixins.jade
+// -> views/index.jade
+doctype html
+html
+	include ../layouts/common/header
+	body
+		#drawer-container
+			include ../layouts/common/drawer
+			hr
+			.container
+				.row#searcharea
+					.col.col-lg-4.col-md-4.col-sm-4.col-xs-4
+						.info
+							p Tokyo, Japan
+							p Wed, Sep 23, 2015 - Sat, Sep 26, 2015
+							p 1 adult, 1 room Change
+					.col.col-lg-8.col-md-8.col-sm-8.col-xs-8
+						.row.selectbox
+							.col.col-lg-6.col-md-12.col-sm-12.col-xs-12
+								| Currency:
+
+								select.select(data-placeholder="test")
+									option(value="cat1") Japanese(￥)
+									option(value="cat2") English($)
+							.col.col-lg-6.col-md-12.col-sm-12.col-xs-12
+								| Sort by:
+
+								select.select(data-placeholder="test")
+									option(value="cat1") Price:High
+									option(value="cat2") Price:Low
+			hr
+			.container#hotel-list
+				.row.section
+					.col.col-lg-4.col-md-4.col-sm-4.col-xs-4
+						img.img-responsive(src="../images/photos/popularhotel.png")
+					.col.col-lg-5.col-md-5.col-sm-5.col-xs-5
+						p.brand HOTEL MYSTAYS
+						h2 Haneda
+						address Hamamatucho,Minato-Ku, Tokyo
+						img(src="../images/buttons & icons/review.png")
+						span (8 reviews)
+						p Lorem ipsum dolor sit amet,consectetur adipiscing elit.Lorem ipsum dolor sit amet,consectetur adipiscing elit.
+					.col.col-lg-3.col-md-3.col-sm-3.col-xs-3
+						.row.price-info
+							.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+								p Lowest Standard Rate
+								p.blue.
+									From ￥50,000<br>
+									/pernight
+							.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+								p Lowest Standard Rate
+								p.blue.
+									From ￥50,000<br>
+									/pernight
+				//- リピート
+				.row.section
+					.col.col-lg-4.col-md-4.col-sm-4.col-xs-4
+						img.img-responsive(src="../images/photos/popularhotel.png")
+					.col.col-lg-5.col-md-5.col-sm-5.col-xs-5
+						p.brand HOTEL MYSTAYS
+						h2 Haneda
+						address Hamamatucho,Minato-Ku, Tokyo
+						img(src="../images/buttons & icons/review.png")
+						span (8 reviews)
+						p Lorem ipsum dolor sit amet,consectetur adipiscing elit.Lorem ipsum dolor sit amet,consectetur adipiscing elit.
+					.col.col-lg-3.col-md-3.col-sm-3.col-xs-3
+						.row
+							.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+								p Lowest Standard Rate
+								p.blue.
+									From ￥50,000<br>
+									/pernight
+							.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+								p Lowest Standard Rate
+								p.blue.
+									From ￥50,000<br>
+									/pernight
+			include ../layouts/common/footer
+			include ../layouts/common/js

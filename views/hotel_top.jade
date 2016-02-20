@@ -1,0 +1,421 @@
+// -> views/hotel.jade
+
+mixin hotelTopBackground(property)
+	if property.topPagePhoto
+		if property.topPagePhoto
+			#headerarea(style="background-image: url(#{property.topPagePhoto.url});")
+script(type='text/javascript').
+	var localData =!{JSON.stringify(data)}
+script(src='/js/jquery/jquery-1.11.2.min.js')
+script(src='/js/pi/googleMaps.js')
+
+include ../mixins/mixins.jade
+doctype html
+html
+	include ../layouts/common/header
+	body#hotel-top(data="#{id}")
+		#drawer-container
+			include ../layouts/common/drawer
+			if data.property.length
+				+hotelTopBackground(data.property[0])
+			//#headerarea(style="background-image: url('../images/photos/haneda_top.png');")
+			.container-fluid
+				.l-header.row
+					.l-sub-header.fluid-photos.col.col-lg-12.col-md-12.col-sm-12.col-xs-12.col-sm-push-1.col-md-push-0
+						img.img-responsive.center-block(src="../images/photos/haneda_top.png")
+			.container
+				.l-section-wrapper.no-border.row(style="overflow:hidden;")
+					.l-section-side.col.col-lg-2.hidden-md.hidden-sm.hidden-xs
+						.l-section.row
+							.l-sub-section.col.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+								//- include ../layouts/hotels/hotel_sideBar
+								.sticky.no-border
+									.l-sub-section-side
+										ul.nav.nav-pills.nav-stacked
+											li
+												a(href="#news-promotions") NEWS & PROMO
+											li
+												a(href="#hotel-about") ABOUT
+											li
+												a(href="#hotel-details") HOTEL DETAILS
+											li
+												a(href="#hotel-rooms") ROOMS
+											li
+												a(href="#hotel-rating") REVIEW
+											li
+												a(href="#hotel-attraction") LOCAL ATTRACTIONS
+											li
+												a(href="#map") MAP
+											li
+												a(href="#hotelNearby") HOTELS NEARBY
+					.l-section-main.col.col-lg-10.col-md-12.col-sm-12.col-xs-12.col-sm-push-1.col-md-push-0
+						.l-section.row.hidden-md.hidden-ms.hidden-xs
+							.l-sub-section.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+								include ../layouts/parts/rsv_module
+								//header info
+						.l-section.row
+							.l-sub-section.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+								//- include ../layouts/hotels/hotel_infoHeader
+								mixin hotelInfoHeader(property)
+									#hotel-header
+										p.brand HOTEL MYSTAYS
+										h1 #{property.propertyInfos[0].content}
+										address #{property.city.name},#{property.prefecture.name}
+										p
+											img.review(src="../images/foo/review.png")
+											span 5 Reviews
+											img(src="../images/foo/TD.png")
+
+								if data.property.length
+									+hotelInfoHeader(data.property[0])
+						//news and propmotion
+						.l-section.row#news-promotions
+							//- include ../layouts/hotels/hotel_newsPromotions
+							mixin hotelNews(news)
+								-var languageParam = ""
+								if header.filters.language.sio
+									-languageParam = "&languageIso=" + header.filters.language.iso
+								if news.photos.length
+
+									.m-sub-section.col.col-lg-6.col-md-6.col-sm-6.col-xs-12
+										.row
+											.col.col-lg-6.col-md-6.col-sm-6.col-xs-6
+												//a(href="/news?newsId=" + news._id + languageParams)
+												img.img-responsive.media-image(src= resizeCloudinaryUrl(news.photos[0].picture.url,290,190))
+											.col.col-lg-6.col-md-6.col-sm-6.col-xs-6
+												p #{news.newsInfos[0].titleContent}
+												//a(href="/news?newsId=" + news._id + languageParams) Learn More
+							.l-sub-section.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+								- var title = "News & Promotions";
+								- var linkText  = null;
+								- var linkPath = "#"
+								- var text = null;
+								+m-section-header(title,link,text,linkText,linkPath)
+							.l-sub-section.l-sub-section-contents.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+								.m-section.row
+									if data.news.length
+										if data.news[0]
+											+hotelNews(data.news[0])
+										if data.news[1]
+											+hotelNews(data.news[1])
+
+						hr.hr
+						//hotel about
+						.l-section.row#hotel-about
+							//- include ../layouts/hotels/hotel_about
+							mixin hotelAbout(property)
+								if property.propertyInfos.length > 0
+									p #{property.propertyInfos[0].aboutContent}
+
+									.m-section.row.photo-gutter-5(class="highslide-gallery")
+										if property.aboutPhotos.length > 0
+											-var i = 0
+											while i < 4
+												if property.aboutPhotos.length > i
+													.m-sub-section.col.col.col-lg-3.col-3.col-sm-3.col-xs-6
+														if i == 0
+															a(id = "hotelAbout", class ="highslide", href = property.aboutPhotos[i].picture.url, onclick="return hs.expand(this, {slideshowGroup: 1 })")
+																img.img-responsive.center-block(src = resizeCloudinaryUrl(property.aboutPhotos[i].picture.url,142,120), alt=property.propertyInfos[0].content)
+														else
+															a(class ="highslide", href = property.aboutPhotos[i].picture.url, onclick="return hs.expand(this,  {slideshowGroup: 1 })")
+																img.img-responsive.center-block(src = resizeCloudinaryUrl(property.aboutPhotos[i].picture.url,142,120), alt=property.propertyInfos[0].content)
+												-i++
+											div(class="hidden-container")
+												while i < property.aboutPhotos.length
+													a(class ="highslide", href = property.aboutPhotos[i].picture.url, onclick="return hs.expand(this,  {thumbnailId: 'hotelAbout', slideshowGroup: 1 })")
+														img.img-responsive(src = resizeCloudinaryUrl(property.aboutPhotos[i].picture.url,142,120), alt=property.propertyInfos[0].content)
+													-i++
+
+							.l-sub-section.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+								- var title = "About";
+								- var linkText  = null;
+								- var linkPath = "#"
+								- var text = null;
+								+m-section-header(title,link,text,linkText,linkPath)
+							.l-sub-section.l-sub-section-contents.col.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+								if data.property.length
+									+hotelAbout(data.property[0])
+						hr.hr
+						//hote details
+						.l-section.row#hotel-details.hotelInfo
+							//- include ../layouts/hotels/hotel_details
+							mixin hotelDetails(property)
+								.l-sub-section.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+									- var title = "Hotel Details";
+									- var linkText  = null;
+									- var linkPath = "#"
+									- var text = null;
+									+m-section-header(title,link,text,linkText,linkPath)
+
+
+								.l-sub-section.l-sub-section-contents.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+									dl.dl-list.row.gutter-off
+										dt.dt.col.col-lg-2.col-md-2.col-sm-2.col-xs-12 ROOM
+										dd.dd.clearfix.col.col-lg-10.col-md-10.col-sm-10.col-xs-12
+											ul.list-inline.row.clearfix
+												li.col.col-lg-6.col-md-6.col-sm-6.col-xs-12 Check-in, #{moment(property.checkin).format("HH:mm")}
+												li.col.col-lg-6.col-md-6.col-sm-6.col-xs-12 Check-out, #{moment(property.checkout).format("HH:mm")}
+										dt.dt.col.col-lg-2.col-md-2.col-sm-2.col-xs-12 FACILITIES & SERVICES
+										dd.dd.clearfix.col.col-lg-10.col-md-10.col-sm-10.col-xs-12
+											.row
+												ul.detail-list.col.col-lg-6.col-md-6.col-sm-6.col-xs-12
+													-var i = 0
+													if property.guestRoomFacilities.length > 0
+														each guestRoomFacility in property.guestRoomFacilities
+															if(i % 2 == 0)
+																li
+																	img.img-responsive(src= resizeCloudinaryUrl(guestRoomFacility.icon.url,19,19))
+																	p #{guestRoomFacility.guestRoomFacilityInfos[0].content}
+															-i++
+												ul.detail-list.col.col-lg-6.col-md-6.col-sm-6.col-xs-12
+													-i = 0
+													if property.guestRoomFacilities.length > 0
+														each guestRoomFacility in property.guestRoomFacilities
+															if(i % 2 > 0)
+																li
+																	img.img-responsive(src= resizeCloudinaryUrl(guestRoomFacility.icon.url,19,19))
+																	p #{guestRoomFacility.guestRoomFacilityInfos[0].content}
+															-i++
+										dt.dt.col.col-lg-2.col-md-2.col-sm-2.col-xs-12 INTERNET
+										dd.dd.clearfix.col.col-lg-10.col-md-10.col-sm-10.col-xs-12
+											.row
+												ul.detail-list.col.col-lg-6.col-md-6.col-sm-6.col-xs-12
+													-var i = 0
+													if property.rentalEquipments.length > 0
+														each rentalEquipment in property.rentalEquipments
+															if(i % 2 == 0)
+																li
+																	img.img-responsive(src= resizeCloudinaryUrl(rentalEquipment.icon.url,19,19))
+																	p #{rentalEquipment.rentalEquipmentInfos[0].content}
+															-i++
+												ul.detail-list.col.col-lg-6.col-md-6.col-sm-6.col-xs-12
+													-i = 0
+													if property.rentalEquipments.length > 0
+														each rentalEquipment in property.rentalEquipments
+															if(i % 2 > 0)
+																li
+																	img.img-responsive(src= resizeCloudinaryUrl(rentalEquipment.icon.url,19,19))
+																	p #{rentalEquipment.rentalEquipmentInfos[0].content}
+															-i++
+										dt.dt.col.col-lg-2.col-md-2.col-sm-2.col-xs-12 AMENITIES
+										dd.dd.clearfix.col.col-lg-10.col-md-10.col-sm-10.col-xs-12
+											.row
+												ul.detail-list.col.col-lg-6.col-md-6.col-sm-6.col-xs-12
+													-var i = 0
+													if property.amenities.length > 0
+														each amenity in property.amenities
+															if(i % 2 == 0)
+																li
+																	img.img-responsive(src= resizeCloudinaryUrl(amenity.icon.url,19,19))
+																	p #{amenity.amenityInfos[0].content}
+															-i++
+												ul.detail-list.col.col-lg-6.col-md-6.col-sm-6.col-xs-12
+													-i = 0
+													if property.rentalEquipments.length > 0
+														each amenity in property.amenities
+															if(i % 2 > 0)
+																li
+																	img.img-responsive(src= resizeCloudinaryUrl(amenity.icon.url,19,19))
+																	p #{amenity.amenityInfos[0].content}
+															-i++
+										dt.dt.col.col-lg-2.col-md-2.col-sm-2.col-xs-12 DINING
+										dd.dd.clearfix.col.col-lg-10.col-md-10.col-sm-10.col-xs-12
+											#accordion(role='tablist', aria-multiselectable='true')
+												if property.restaurants.length > 0
+													- var restaurantCounter = 1
+													each restaurant in property.restaurants
+														div(id = "heading_#{restaurantCounter}", role='tab', class = "tab")
+															h4.panel-title
+																img(class = "img-responsive", style="float:left")(src= resizeCloudinaryUrl(restaurant.icon.url,19,19))
+																div(style='display:inline-block; padding:0; padding-left :10px;', role='button', data-toggle='collapse', data-parent='#accordion', href="#collapse_#{restaurantCounter}", aria-expanded='true', aria-controls="collapse_#{restaurantCounter}")
+																	//a( role='button', data-toggle='collapse', data-parent='#accordion', href="#collapse_#{restaurantCounter}", aria-expanded='true', aria-controls="collapse_#{restaurantCounter}")
+																	p #{restaurant.restaurantInfos[0].content}
+																		span.glyphicon.glyphicon-menu-up.caret
+																	div(id ="collapse_#{restaurantCounter}", class = "collapse", role='tabpanel', aria-labelledby="heading_#{restaurantCounter}" aria-expanded="true")
+																		div
+																			ul.detail-list.pull-left
+																				li Hours
+																				li Breakfast,  #{moment(restaurant.breakfastStartTime).format("HH:mm")} - #{moment(restaurant.breakfastEndTime).format("HH:mm")} (last orders at #{moment(restaurant.breakfastLastOrder).format("HH:mm")} )
+																				li Lunch,  #{moment(restaurant.lunchStartTime).format("HH:mm")} - #{moment(restaurant.lunchEndTime).format("HH:mm")} (last orders at #{moment(restaurant.lunchLastOrder).format("HH:mm")} )
+																				li Dinner,  #{moment(restaurant.dinnerStartTime).format("HH:mm")} - #{moment(restaurant.dinnerEndTime).format("HH:mm")} (last orders at #{moment(restaurant.dinnerLastOrder).format("HH:mm")} )
+										dt.dt.col.col-lg-2.col-md-2.col-sm-2.col-xs-12 PARKING
+										dd.dd.clearfix.col.col-lg-10.col-md-10.col-sm-10.col-xs-12
+											ul
+												li Add this into model
+
+							if data.property.length
+								+hotelDetails(data.property[0])
+						hr.hr
+						//hotel rooms
+						.l-section.row#hotel-rooms.section.hotelInfo
+							//- include ../layouts/hotels/hotel_rooms
+							mixin hotelRooms(property)
+								-var i = 0
+								if property.rooms.length > 0
+									each room in property.rooms
+										if(i % 2 == 0 && room.photos)
+											.m-sub-section.col.col-lg-6.col-md-6.col-sm-6.col-xs-6
+												- var imgName = resizeCloudinaryUrl(room.photos[0].picture.url,364,242);
+												- var roomName = room.roomInfos[0].content;
+												- var linkText = "Lean more";
+												- var linkPath = "#";
+												- var reserveText = "RESERVE";
+												+rooms(imgName,roomName,linkText,linkPath,reserveText)
+										-i++
+								-i = 0
+								if property.rooms.length > 0
+									each room in property.rooms
+										if(i % 2 > 0 && room.photos)
+											.m-sub-section.col.col-lg-6.col-md-6.col-sm-6.col-xs-6
+												- var imgName = resizeCloudinaryUrl(room.photos[0].picture.url,364,242);
+												- var roomName = room.roomInfos[0].content;
+												- var linkText = "Lean more";
+												- var linkPath = "#";
+												- var reserveText = "RESERVE";
+												+rooms(imgName,roomName,linkText,linkPath,reserveText)
+										-i++
+
+
+
+							.l-sub-section.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+								- var title = "Rooms";
+								- var linkText  = null;
+								- var linkPath = "#"
+								- var text = null;
+								+m-section-header(title,link,text,linkText,linkPath)
+							.l-sub-section.l-sub-section-contents.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+								.m-section.row
+									if data.property.length
+										+hotelRooms(data.property[0])
+						hr.hr
+						//.row#hotel-rating.section.no-border.hotelInfo
+							include ../layouts/hotels/hotel_rating
+						hr.hr
+						.l-section.row#map.section.no-border.hotelInfo
+							//- include ../layouts/hotels/hotel_map
+							.col.col-lg-12.col-lg-12.col-lg-12.col-lg-12
+								if data.property.length > 0
+									div(id = "gMap" style="width:100%;height:400px;")
+						hr.hr
+						.l-section.row#hotel-attraction.section.no-border.hotelInfo
+							//- include ../layouts/hotels/hotel_attraction
+							.l-sub-section.col.col-lg-12.col-md-12.col.sm-12.col-xs-12
+								- var title = "Local Attractions";
+								- var linkText = "See all local Attractions in Tokyo";
+								- var linkPath = "#";
+								- var text = null;
+								+m-section-header(title,link,text,linkText,linkPath)
+							.l-sub-section.l-sub-section-contents.col.col-lg-12.col-md-12.col.sm-12.col-xs-12
+								.m-section.row
+									.clearfix
+										.m-sub-section.col.col-lg-4.col-md-4.col.sm-4.col-xs-12
+											- var imgName = "3499.jpg";
+											- var alt = "photo";
+											- var imgLinkPath = "#";
+											- var title = "Omotesando";
+											- var caption = null;
+											- var subTitle = null;
+											- var text = "Harajuku is a cultural heaven for Tokyo's youth. Omotesando has stylish shops excellent for shopping while taking a stroll.";
+											- var linkText = "Learn More";
+											- var linkPath = "#";
+											+m-media(imgName,imgLinkPath,alt,title,caption,subTitle,text,linkText,linkPath)
+										.m-sub-section.col.col-lg-4.col-md-4.col.sm-4.col-xs-12
+											- var imgName = "3547.jpg";
+											- var alt = "photo";
+											- var imgLinkPath = "#";
+											- var title = "Asakusa";
+											- var caption = null;
+											- var subTitle = null;
+											- var text = "Tokyo's largest ancient Buddhist temple and a major Tokyo attraction.";
+											- var linkText = "Learn More";
+											- var linkPath = "#";
+											+m-media(imgName,imgLinkPath,alt,title,caption,subTitle,text,linkText,linkPath)
+										.m-sub-section.col.col-lg-4.col-md-4.col.sm-4.col-xs-12
+											- var imgName = "2882.jpg";
+											- var alt = "photo";
+											- var imgLinkPath = "#";
+											- var title = "Shibuya";
+											- var caption = null;
+											- var subTitle = null;
+											- var text = "Take a few moments to watch Shibuya  “scramble” crosswalk";
+											- var linkText = "Learn More";
+											- var linkPath = "#";
+											+m-media(imgName,imgLinkPath,alt,title,caption,subTitle,text,linkText,linkPath)
+									.clearfix
+										.m-sub-section.col.col-lg-4.col-md-4.col.sm-4.col-xs-12
+											- var imgName = "haneda_001.jpg";
+											- var alt = "photo";
+											- var imgLinkPath = "#";
+											- var title = "Haneda Airport";
+											- var caption = null;
+											- var subTitle = "(Tokyo International Airport)";
+											- var text = "The completion of the D Runway has transformed the airport into a 24-hour international hub.";
+											- var linkText = "Learn More";
+											- var linkPath = "#";
+											+m-media(imgName,imgLinkPath,alt,title,caption,subTitle,text,linkText,linkPath)
+										.m-sub-section.col.col-lg-4.col-md-4.col.sm-4.col-xs-12
+											- var imgName = "haneda_006.jpg";
+											- var alt = "photo";
+											- var imgLinkPath = "#";
+											- var title = "Anamori Inari Shrine";
+											- var caption = null;
+											- var subTitle = "(Tokyo International Airport)";
+											- var text = "Worshippers visited this shrine to pray for protection from rough waves breaking through the levee and destroying their crops.";
+											- var linkText = "Learn More";
+											- var linkPath = "#";
+											+m-media(imgName,imgLinkPath,alt,title,caption,subTitle,text,linkText,linkPath)
+										.m-sub-section.col.col-lg-4.col-md-4.col.sm-4.col-xs-12
+											- var imgName = "haneda_046.jpg";
+											- var alt = "photo";
+											- var imgLinkPath = "#";
+											- var title = "Jonanjima Seaside Park";
+											- var caption = null;
+											- var subTitle = "(Tokyo International Airport)";
+											- var text = "An oceanside park where you can get a close-up view of airplanes taking off from Haneda Airport.";
+											- var linkText = "Learn More";
+											- var linkPath = "#";
+											+m-media(imgName,imgLinkPath,alt,title,caption,subTitle,text,linkText,linkPath)
+						.l-section.row#hotelNearby.hotelInfo
+							//- include ../layouts/hotels/hotel_nearby
+							if data.nearestProperties.length > 0
+								.l-sub-section.col.col-lg-12.col-md-12.col.sm-12.col-xs-12
+									- var title = "Hotel Nearby";
+									- var linkText = null;
+									- var linkPath = null;
+									- var text = null;
+									+m-section-header(title,link,text,linkText,linkPath)
+								.l-sub-section.l-sub-section-contents.col.col-lg-12.col-md-12.col.sm-12.col-xs-12
+									.m-section.row
+										-var languageIso = ''
+										if header.filters.language.iso
+											-languageIso = "&languageIso=" + header.filters.language.iso
+										if data.nearestProperties[0]
+											.m-sub-section.m-media-wrapper.col.col-lg-6.col-md-6.col-sm-6.col-xs-12
+												- var imgName = resizeCloudinaryUrl(data.nearestProperties[0].topPagePhoto.url,381,254);
+												- var linkPath = "/hotel?hotelId=" + data.nearestProperties[0]._id + languageIso;
+												- var alt = "alt-text";
+												- var brand = data.nearestProperties[0].brands[0].brandInfos[0].content;
+												- var name = data.nearestProperties[0].propertyInfos[0].content;
+												- var time = "6min";
+												- var subTitle = null;
+												- var price = "From ¥10,000/night";
+												- var linkText = null;
+												+m-media-nearby(imgName,linkPath,alt,brand,name,time,subTitle,price,linkText,linkPath)
+										if data.nearestProperties[1]
+											.m-sub-section.m-media-wrapper.col.col-lg-6.col-md-6.col-sm-6.col-xs-12
+												- var imgName = resizeCloudinaryUrl(data.nearestProperties[1].topPagePhoto.url,381,254);
+												- var linkPath = "/hotel?hotelId=" + data.nearestProperties[1]._id + languageIso;
+												- var alt = "alt-text";
+												- var brand = data.nearestProperties[1].brands[0].brandInfos[0].content;
+												- var name = data.nearestProperties[1].propertyInfos[0].content;
+												- var time = "6min";
+												- var subTitle = null;
+												- var price = "From ¥10,000/night";
+												- var linkText = null;
+												+m-media-nearby(imgName,linkPath,alt,brand,name,time,subTitle,price,linkText,linkPath)
+
+			include ../layouts/common/footer
+			include ../layouts/common/js
+//- span#indicator 0
+
+

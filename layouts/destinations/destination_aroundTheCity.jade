@@ -1,0 +1,23 @@
+mixin destinationAroundTheCity(city)
+	-var i = 0
+	while i < city.photos.length
+		if i < 2
+			.col.col-lg-6.col-md-6.col-sm-6.col-xs-6
+				img.img-responsive(src=resizeCloudinaryUrl(city.photos[i].picture.url,456,304))
+		else
+			.col.col-lg-4.col-md-4.col-sm-4.col-xs-4
+				img.img-responsive(src=resizeCloudinaryUrl(city.photos[i].picture.url,307,206))
+		-i++
+
+.l-section.row
+	- var title       = "Around the City";
+	- var link        = null;
+	- var text        = "Lorem ipsum dolor sit amet,consectetur adipiscing elit.Lorem ipsum dolor sit amet,consectetur adipiscing elit.";
+
+	.l-sub-section.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+		+m-section-header()
+	.l-sub-section.l-sub-section-contents.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+		.m-section.row
+			.m-sub-section.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+				.row.photo-gutter-5
+					+destinationAroundTheCity(data.cities[0])

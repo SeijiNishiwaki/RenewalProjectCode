@@ -1,0 +1,18 @@
+.row.rowSeparator55
+.row.rowSeparator17
+	.col-lg-12.col-md-12.col-sm-12.col-xs-12
+		h1#attractionHeaderTitle.centerTitle Popular Attractions
+.row
+	.col-lg-12.col-md-12.col-sm-12.col-xs-12
+		p#attractionHeaderContent.centerTitleContent These are the popular attractions near our hotels (TEXT NEEDS TO BE CHANGED)
+.row.rowSeparator55
+
+if data.attractions.length > 0
+	.row.rowSeparator55
+		.col-lg-12.col-md-12.col-sm-12.col-xs-12.fixOverlayDiv
+			img(src=resizeCloudinaryUrl(data.attractions[0].attractionListPhoto.picture.url,916,380))
+			.col.OverlayText(style="width:916px")
+				h1 #{data.attractions[0].attractionInfos[0].content}
+				p #{data.attractions[0].attractionInfos[0].attractionListContent}
+				a(href = "attraction?attractionId="+ data.attractions[0]._id + languageIso)
+					p Learn More

@@ -1,0 +1,100 @@
+include ../mixins/flash-messages
+include ../mixins/mixins.jade
+doctype html
+html
+	include ../layouts/common/header
+	body#attractionlist
+		#drawer-container
+			include ../layouts/common/drawer
+			.container
+				.l-header.row
+					.l-sub-section.text-center.col.col-lg-10.col-md-12.col-sm-12.col-xs-12.col-lg-offset-1
+						.m-title-area.text-center
+								h1.title Atractions
+								p.text text text text text text text text text text text text text text text text text text text text text text text  text text text text text text text text text text text
+					.l-sub-section.fluid-photos.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+						.l-header-area
+							img.img-responsive.center-block(src="../images/photos/weddingtop_dummy.jpg")
+							.top-mess-area
+								h2.latest-dev Kanazawa's Garden of Eden
+								p.text.hidden-xs text text text text text text text text text text text text text
+								a Read More <span class="glyphicon glyphicon-menu-right" area-hidden="true">
+			.container
+				.row
+					.col.col-lg-10.col-md-10.col-sm-10.col-xs-12.col-sm-offset-1
+						.l-section.l-section-only.row
+							.l-sub-section.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+								.m-section.m-img-list.row
+									.m-sub-section.image-list-img.col.col-lg-5.col-md-5.col-sm-5.col-xs-12
+										a(href="/hotel?hotelId=")
+										img.img-responsive(src="../images/photos/front_maihama.jpg")
+									.m-sub-section.m-img-list-contents.col.col-lg-7.col-md-7.col-sm-7.col-xs-12
+										p.timestamp.gray octorber 6th, 2015
+										p.title Title
+										p.tags.darkgray tag
+										a Read More
+								.m-section.m-img-list.row
+									.m-sub-section.image-list-img.col.col-lg-5.col-md-5.col-sm-5.col-xs-12
+										a(href="/hotel?hotelId=")
+										img.img-responsive(src="../images/photos/front_maihama.jpg")
+									.m-sub-section.m-img-list-contents.col.col-lg-7.col-md-7.col-sm-7.col-xs-12
+										p.timestamp.gray octorber 6th, 2015
+										p.title Title
+										p.tags.darkgray tag
+										a Read More
+								.m-section.m-img-list.row
+									.m-sub-section.image-list-img.col.col-lg-5.col-md-5.col-sm-5.col-xs-12
+										a(href="/hotel?hotelId=")
+										img.img-responsive(src="../images/photos/front_maihama.jpg")
+									.m-sub-section.m-img-list-contents.col.col-lg-7.col-md-7.col-sm-7.col-xs-12
+										p.timestamp.gray octorber 6th, 2015
+										p.title Title
+										p.tags.darkgray tag
+										a Read More
+								.m-section.m-img-list.row
+									.m-sub-section.image-list-img.col.col-lg-5.col-md-5.col-sm-5.col-xs-12
+										a(href="/hotel?hotelId=")
+										img.img-responsive(src="../images/photos/front_maihama.jpg")
+									.m-sub-section.m-img-list-contents.col.col-lg-7.col-md-7.col-sm-7.col-xs-12
+										p.timestamp.gray octorber 6th, 2015
+										p.title Title
+										p.tags.darkgray tag
+										a Read More
+
+
+
+
+
+
+
+			include ../layouts/common/footer
+			include ../layouts/common/js
+			script.
+				//- //responsive画像と高さをあわせる
+				//- $(function(){
+				//- 	var win = $(window),
+				//- 		imgHeight,
+				//- 		listImage = $('.list-img');
+				//- 		listContents = $('.m-img-list-contents');
+
+				//- 	var heightChange = function(){
+				//- 		imgHeight = listImage.height();
+				//- 		// なぜかlistContentsにcssが効かない
+				//- 		listContents.css({
+				//- 			height:imgHeight + "px",
+				//- 		});
+				//- 	}
+				//- 	heightChange();
+
+				//- 	win.on('resize', function(){
+				//- 		var winWidth = win.width();
+				//- 		if(winWidth > 750){
+				//- 			heightChange();
+				//- 		}else{
+				//- 			listContents.css({
+				//- 				height:'auto'
+				//- 			});
+				//- 		}
+
+				//- 	});
+				//- });

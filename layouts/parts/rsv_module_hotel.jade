@@ -1,0 +1,17 @@
+script(src='/js/jquery/jquery-1.11.2.min.js')
+script(src='/js/pi/reservationDropDownHotel.js')
+script(type='text/javascript').
+	var localReservation =!{JSON.stringify(reservation)}
+	var localHeader =!{JSON.stringify(header)}
+
+if data.property[0].fastbookingId
+	div(id="rsv_module_hotel",class="btn-group btn-wrapper col-lg-12 col-md-12 hidden-md hidden-sm hidden-xs",role="group",aria-label="...")
+		div(class="btn-group group2")
+			input(id="dteCheckIn" value="Check In" required validationMessage="Enter {0}"  style="textwidth:147px; height:47px" )
+		div(class="btn-group group2")
+			input(id="dteCheckOut" value="Check Out" required validationMessage="Enter {0}"  style="width:147px;min-height:47px; max-height:47px;" )
+		div(class="btn-group group4")
+			input(id="selNumAdults" value="# Adults" required validationMessage="Enter {0}"   )
+		div(class="btn-group group4")
+			input(id="selNumChilds" value="# Childs" required validationMessage="Enter {0}"  )
+		button(id="btnCheckHotel", type="button",class="btn btn-black group5") Book Now

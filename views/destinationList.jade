@@ -1,0 +1,20 @@
+include ../mixins/flash-messages
+script(type='text/javascript').
+	var localData =!{JSON.stringify(data)}
+-var languageIso = ''
+	if header.filters.language.iso
+		-languageIso = "&languageIso=" + header.filters.language.iso
+doctype html
+html
+	include ../layouts/common/header
+	body
+		#drawer-container
+			include ../layouts/common/drawer
+			.container#destionationList
+				.row#adestinationListHeader
+					include ../layouts/destinations/destinationList_header
+				.row#destinationListdDestinations
+					include ../layouts/destinations/destinationList_destinations		
+				.row.rowSeparator55
+			include ../layouts/common/footer
+			include ../layouts/common/js

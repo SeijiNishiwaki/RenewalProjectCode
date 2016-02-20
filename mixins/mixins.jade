@@ -1,0 +1,430 @@
+mixin local-nav()
+	ul.nav.nav-pills.nav-pills-custome.local-nav
+		li(role="navigation"): a.local-nav-left-link(href="/overview") ABOUT
+		li(role="navigation"): a.local-nav-left-link(href="/team") TEAM
+		li(role="navigation"): a.local-nav-left-link(href="/jobs") JOBS
+		li(role="navigation"): a.local-nav-left-link(href="/press") PRESS
+		li(role="navigation"): a.local-nav-left-link(href="#") FAQ
+		li.pull-right(role="navigation"): a.local-nav-right-link(href="/about/dev") BUSINESS INFORMATION
+mixin about-local-nav(page)
+				if (page == "Developments")
+
+					ul.nav.nav-pills.nav-pills-custome
+						//
+							li(role="navigation"): a(href="/about") OVERVIEW
+						li(role="navigation"): a.blue(href="/about/dev") DEVELOPMENTS
+						li(role="navigation"): a(href="/about/management") MANAGEMENT
+						li(role="navigation"): a(href="/consultation") CONSULTATION
+						//
+							li(role="navigation"): a(href="/about/contact") CONTACT
+				if (page == "Management")
+
+					ul.nav.nav-pills.nav-pills-custome
+						//
+							li(role="navigation"): a(href="/about") OVERVIEW
+						li(role="navigation"): a(href="/about/dev") DEVELOPMENTS
+						li(role="navigation"): a.blue(href="/about/management") MANAGEMENT
+						li(role="navigation"): a(href="/consultation") CONSULTATION
+						//
+							li(role="navigation"): a(href="/about/contact") CONTACT
+				if (page == "Consultation")
+
+					ul.nav.nav-pills.nav-pills-custome
+						//
+							li(role="navigation"): a(href="/about") OVERVIEW
+						li(role="navigation"): a(href="/about/dev") DEVELOPMENTS
+						li(role="navigation"): a(href="/about/management") MANAGEMENT
+						li(role="navigation"): a.blue(href="/consultation") CONSULTATION
+						//
+							li(role="navigation"): a(href="/about/contact") CONTACT
+mixin m-section-header-center(title,text)
+	.row.m-section-header.text-center
+		if title
+			.section-header-title.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+				h2 #{title}
+		if text
+			.section-header-text.col.col-lg-10.col-md-12.col-sm-12.col-xs-12.col-lg-offset-1
+				p #{text}
+mixin m-section-header-center-link(title,text,linkText,linkPath)
+	.row.m-section-header.text-center
+		if title
+			.section-header-title.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+				h2 #{title}
+		if text
+			.section-header-text.col.col-lg-10.col-md-12.col-sm-12.col-xs-12.col-lg-offset-1
+				p #{text}
+					if linkText
+						a(href="#{linkPath}") #{linkText}
+
+mixin m-section-header(title,link,text,linkText,linkPath)
+	.row.m-section-header
+		if title
+			.section-header-title.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+				h2.pull-left #{title}
+				if linkText
+					div.pull-right.text-right.hidden-xs
+						a(href="#{linkPath}") #{linkText}
+							span.glyphicon.glyphicon-menu-right
+		if text
+			.section-header-text.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+				p #{text}
+		if linkText
+			.section-header-link.col.col-lg-6.col-md-6.col-sm-6.col-xs-12.hidden-lg.hidden-md.hidden-sm
+				a(href="#{linkPath}") #{linkText}
+					span.glyphicon.glyphicon-menu-right
+mixin m-section-header-s(title,link,text,linkText,linkPath)
+	.row.m-section-header
+		if title
+			.section-header-title.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+				h3.pull-left #{title}
+				if linkText
+					div.pull-right.text-right.hidden-xs
+						a(href="#{linkPath}") #{linkText}
+							span.glyphicon.glyphicon-menu-right
+		if text
+			.section-header-text.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+				p #{text}
+		if linkText
+			.section-header-link.col.col-lg-6.col-md-6.col-sm-6.col-xs-12.hidden-lg.hidden-md.hidden-sm
+				a(href="#{linkPath}") #{linkText}
+					span.glyphicon.glyphicon-menu-right
+
+
+mixin m-media-A(imgName,imgLinkPath,alt,label,title,subTitle,text,linkText,linkPath)
+	.m-media-wrapper
+		.m-media.m-media-A
+			if imgName
+				if imgLinkPath
+					a.media-image-link(href="#{imgLinkPath}")
+						img.media-image.img-responsive(src="../images/photos/#{imgName}",alt="#{alt}")
+				else
+					img.media-image.img-responsive(src="../images/photos/#{imgName}",alt="#{alt}")
+			if label
+				p.media-label #{label}
+			if title
+				h3.media-title #{title}
+			if subTitle
+				p.media-sub-title #{subTitle}
+			if text
+				p.hidden-xs.media-text #{text}
+			if linkText
+				a.media-link(href="#{linkPath}")
+					| #{linkText}
+
+
+
+mixin m-media(imgName,imgLinkPath,alt,title,caption,subTitle,text,linkText,linkPath)
+	.m-media-wrapper
+		.m-media
+			if imgName
+				if imgLinkPath
+					a.media-image-link(href="#{imgLinkPath}")
+						img.media-image.img-responsive(src="../images/photos/#{imgName}",alt="#{alt}")
+				else
+					img.media-image.img-responsive(src="../images/photos/#{imgName}",alt="#{alt}")
+			if caption === true
+				if title
+					h3.media-caption #{title}
+			else
+				if title
+					h3.media-title #{title}
+			if subTitle
+				p.media-sub-title #{subTitle}
+			if text
+				p.media-text.hidden-xs #{text}
+			if linkText
+				a.media-link(href="#{linkPath}")
+					| #{linkText}
+
+mixin m-media-destination(imgName,imgLinkPath,alt,title,subTitle,text,linkText,linkPath)
+	.m-media-wrapper
+		.m-media.m-media-destination
+			if imgName
+				if imgLinkPath
+					a.media-image-link(href="#{imgLinkPath}")
+						img.media-image.img-responsive(src="../images/photos/#{imgName}",alt="#{alt}")
+				else
+					img.media-image.img-responsive(src="../images/photos/#{imgName}",alt="#{alt}")
+			if caption === true
+				if title
+					h3.media-caption: a.media-link(href="#{imgLinkPath}") #{title}
+			if subTitle
+				p.media-sub-title #{subTitle}
+			if text
+				p.media-text.hidden-xs #{text}
+			if linkText
+				a.media-link(href="#{linkPath}")
+					| #{linkText}
+
+mixin m-media-wedding(imgName,imgLinkPath,alt,title,caption,subTitle,text,linkText,linkPath)
+	.m-media-wrapper
+		.m-media.text-center.m-media-wedding
+			if imgName
+				if imgLinkPath
+					a.media-image-link(href="#{imgLinkPath}")
+						img.media-image.img-responsive(src="../images/photos/#{imgName}",alt="#{alt}")
+				else
+					img.media-image.img-responsive(src="../images/photos/#{imgName}",alt="#{alt}")
+			if title
+				h3.media-title #{title}
+			if subTitle
+				p.media-sub-title #{subTitle}
+			if text
+				p.media-text.hidden-xs #{text}
+			if linkText
+				a.media-link(href="#{linkPath}")
+					| #{linkText}
+mixin m-media-center(imgName,imgLinkPath,alt,title,caption,subTitle,text,linkText,linkPath)
+	.m-media-wrapper
+		.m-media.m-media-center
+			if imgName
+				if imgLinkPath
+					a.media-image-link(href="#{imgLinkPath}")
+						img.media-image.img-responsive(src="../images/photos/#{imgName}",alt="#{alt}")
+				else
+					img.media-image.img-responsive(src="../images/photos/#{imgName}",alt="#{alt}")
+			if title
+				h3.media-title #{title}
+			if subTitle
+				p.media-sub-title #{subTitle}
+			if text
+				p.media-text.hidden-xs #{text}
+			if linkText
+				a.media-link(href="#{linkPath}")
+					| #{linkText}
+mixin m-media-center-circle(imgName,imgLinkPath,alt,title,caption,subTitle,text,linkText,linkPath)
+	.m-media-wrapper
+		.m-media.m-media-center-circle
+			if imgName
+				if imgLinkPath
+					a.media-image-link(href="#{imgLinkPath}")
+						img.media-image.img-responsive.img-circle(src="../images/photos/#{imgName}",alt="#{alt}")
+				else
+					img.media-image.img-responsive.img-circle(src="../images/photos/#{imgName}",alt="#{alt}")
+			if title
+				h3.media-title #{title}
+			if subTitle
+				p.media-sub-title #{subTitle}
+			if text
+				p.media-text.hidden-xs #{text}
+			if linkText
+				a.media-link(href="#{linkPath}")
+					| #{linkText}
+mixin m-media-specialoffers(imgName,imgLinkPath,alt,label,title,subTitle,text,linkText,linkPath)
+	.m-media-wrapper
+		.m-media.m-media-specialoffers
+			if imgName
+				if imgLinkPath
+					a.media-image-link(href="#{imgLinkPath}")
+						img.media-image.img-responsive(src="../images/photos/#{imgName}",alt="#{alt}")
+				else
+					img.media-image.img-responsive(src="../images/photos/#{imgName}",alt="#{alt}")
+			if label
+				p.media-label #{label}
+			if title
+				h3.media-title #{title}
+			if subTitle
+				p.media-sub-title #{subTitle}
+			if text
+				p.hidden-xs.media-text #{text}
+			if linkText
+				a.media-link(href="#{linkPath}")
+					| #{linkText}
+mixin m-media-popular-hotels(imgName,alt,brand,property,price)
+	.m-media-wrapper
+		.m-media.m-media-popular-hotels
+			img.media-image.img-responsive(src="/images/photos/#{imgName}" alt="#{alt}")
+			ul.list-unstyled.media-list
+				li.media-brand #{brand}
+				li.media-property #{property}
+				li.media-price #{price}
+
+mixin m-media-nearby(imgName,linkPath,alt,brand,name,time,subTitle,price,linkText,linkPath)
+	.m-media-wrapper
+		.m-media.m-media-nearby
+			if imgName
+				if linkPath
+					a(href="#{linkPath}")
+						img.media-image.img-responsive(src= imgName ,alt="#{alt}")
+				else
+					img.media-image.img-responsive(src= imgName ,alt="#{alt}")
+			ul.list-unstyled.media-list
+				if brand
+					p.media-brand #{brand}
+						if time
+							span.media-time.pull-right #{time}
+				if name
+					li: h3: a.media-title.media-name.media-link(src="#{linkPath}") #{name}
+				if subTitle
+					li: p.media-sub-title #{subTitle}
+				if price
+					li: p.media-price #{price}
+				if linkText
+					li: a.media-link(href="#{linkPath}")
+						| #{linkText}
+
+mixin m-compare-media(before,after,title,caption,subTitle,text,linkText,linkPath)
+	.m-media-wrapper
+		.m-media.m-compare-media
+			p.blue.text-center Drag to see before and after
+			.compare
+				if before
+					<img class="img-responsive" src="../images/photos/#{before}" />
+				if after
+					<img class="img-responsive" src="../images/photos/#{after}" />
+			if caption === true
+				if title
+					h3.media-caption #{title}
+			else
+				if title
+					h3.media-title #{title}
+			if subTitle
+				p.media-sub-title #{subTitle}
+			if text
+				p.media-text.media-text #{text}
+			if linkText
+				a.media-link(href="#{linkPath}")
+					| #{linkText}
+mixin m-compare-media-B(before,after,title,caption,subTitle,text,linkText,linkPath)
+	.m-media-wrapper
+		.m-media.m-compare.row
+			if before
+				.col.col.col-lg-6.col-md-6.col-sm-6.col-xs-6
+					<img class="img-responsive" src="../images/photos/#{before}" />
+			if after
+				.col.col.col-lg-6.col-md-6.col-sm-6.col-xs-6
+					<img class="img-responsive" src="../images/photos/#{after}" />
+			.col.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+				if caption === true
+					if title
+						h3.media-caption #{title}
+				else
+					if title
+						h3.media-title #{title}
+				if subTitle
+					p.media-sub-title #{subTitle}
+				if text
+					p.media-text #{text}
+				if linkText
+					a.media-link(href="#{linkPath}")
+						| #{linkText}
+mixin hotel-header(property)
+	#hotel-header
+		p.brand HOTEL MYSTAYS
+		h1 Haneda
+		address Asakusabashi,Tokyo | +81(0)76-290-5255
+		p
+			img.review(src="../images/foo/review.png")
+			span 5 Reviews
+			img(src="../images/foo/TD.png")
+
+mixin side-contents(title,text,imgName,linkText,linkPath)
+	if title
+		.l-sub-section-side
+			h4 #{title}
+	if text
+		.l-sub-section-side
+			p #{text}
+	if imgName
+		.l-sub-section-side
+			img.img-responsive(src="../images/photos/#{imgName}")
+	if linkText
+		.l-sub-section-side
+			a(href="#{linkPath}") #{linkText} <span class="glyphicon glyphicon-menu-right">
+
+
+mixin rooms(imgName,roomName,linkText,linkPath,reserveText)
+		.m-media.m-rooms
+			img.img-responsive(src= imgName )
+			ul.media-list
+				li.media-title: h3 #{roomName}
+				li.media-link: a(href="#{linkPath}") #{linkText}
+			.btn-reserve
+				a #{reserveText}
+
+
+mixin m-history()
+	ul
+		li
+			p.year 2001
+			p Flexstay Inn Shinsaibashi<br>(Orignally Flexstay Shinsaibashi Inn)
+		li
+			p.year 2004
+			p Weekly Mansion Nihonbashi<br>(Orignally Hotel MyStays Nihonbashi)
+		li
+			p.year 2005
+			p Flexstay Inn Machida (Orignally Weekly Mansion Machida)<br>
+			p Hotel MyStays Maihama
+		li
+			p.year 2006
+			p Hotel MyStays Kanda (Orignally Flexstay Kanda Inn)<br>
+			p Hotel MyStays Yokohama
+		li
+			p.year 2007
+			p Hotel MyStays Ochanomizu Conference Center
+		li
+			p.year 2008
+			p Hotel MyStays Kyoto-Shijo<br>
+			p Hotel MyStays Fukuoka-Tenjin-Minami (Orignally MyStays Inn Fukuoka-Tenjin-Minami)
+		li
+			p.year 2009
+			p MyStays Shin-Urayasu Conference Center<br>
+			p Hotel Mystays Kamata (Orignally MyStays Inn Kamata)<br>
+			p Hotel MyStays Asakusabashi (Orignally MyStays Inn Asakusabashi)
+		li
+			p.year 2011
+			p Nishi-Shinjuku Hotel MyStays
+		li
+			p.year 2012
+			p Monthly Resi Stays Nakano
+		li
+			p.year 2013
+			p Hotel MyStays Utsunomiya
+
+
+mixin m-dl-history()
+	dl.dl-history.dl-horizontal
+		dt.year 2001
+		dd
+			p Flexstay Inn Shinsaibashi<br>(Orignally Flexstay Shinsaibashi Inn)
+
+		dt.year 2004
+		dd
+			p Weekly Mansion Nihonbashi<br>(Orignally Hotel MyStays Nihonbashi)
+
+		dt.year 2005
+		dd
+			p Flexstay Inn Machida (Orignally Weekly Mansion Machida)<br>
+			p Hotel MyStays Maihama
+
+		dt.year 2006
+		dd
+			p Hotel MyStays Kanda (Orignally Flexstay Kanda Inn)<br>
+			p Hotel MyStays Yokohama
+
+		dt.year 2007
+		dd
+			p Hotel MyStays Ochanomizu Conference Center
+
+		dt.year 2008
+		dd
+			p Hotel MyStays Kyoto-Shijo<br>
+			p Hotel MyStays Fukuoka-Tenjin-Minami (Orignally MyStays Inn Fukuoka-Tenjin-Minami)
+
+		dt.year 2009
+		dd
+			p MyStays Shin-Urayasu Conference Center<br>
+			p Hotel Mystays Kamata (Orignally MyStays Inn Kamata)<br>
+			p Hotel MyStays Asakusabashi (Orignally MyStays Inn Asakusabashi)
+
+		dt.year 2011
+		dd
+			p Nishi-Shinjuku Hotel MyStays
+
+		dt.year 2012
+		dd
+			p Monthly Resi Stays Nakano
+
+		dt.year 2013
+		dd
+			p Hotel MyStays Utsunomiya

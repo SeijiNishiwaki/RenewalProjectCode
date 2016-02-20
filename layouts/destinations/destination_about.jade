@@ -1,0 +1,31 @@
+mixin destinationAbout(city)
+	.m-section-header.row		
+		.section-header-title.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+			h2.pull-left Welcome to #{city.cityInfos[0].content}			
+		.section-header-text.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+			p #{city.cityInfos[0].destinationPageContent}	
+			
+.l-section.row
+	.l-sub-section.col.col-lg-8.col-md-8.col-sm-8.col-xs-12
+		if data.cities.length
+			+destinationAbout(data.cities[0])				
+	.l-sub-section.col.col-lg-4.col-md-4.col-sm-4.col-xs-4.hidden-xs
+		.m-section.row
+			.m-sub-section.col.col-lg-12.col-md-12.col-sm-12.col-xs-12
+				.m-weather-wrapper
+					//need to change
+					.m-weather-info
+						.header
+							p CURRENT WEATHER
+						.contents
+							ul
+								li: p in Haneda, Tokyo
+								li: img(src="../images/buttons & icons/weather.png")
+								li: p.temperature 27C
+								li: p Sunny,Hi 31 / Lo 23
+							hr
+							ul
+								li: p What to Wear:
+								li: p Light clothing, Sunscreen
+								li: img(src="../images/buttons & icons/what_to_wear.png")
+

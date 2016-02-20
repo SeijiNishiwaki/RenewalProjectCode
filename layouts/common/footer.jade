@@ -1,0 +1,69 @@
+block contents
+
+
+block footer
+	#site-footer: .container
+					.row#footer-link
+						.col.col-lg-4.col-md-4.col-sm-12.col-xs-12
+							img.img-responsive(src="/images/logo/logo2.png")
+						.col.col-lg-4.col-md-4.col-sm-12.col-xs-12.footer-link
+							h4.small COMPANY
+							ul.list-unstyled
+								li.small: a(href="#") About Us
+								li.small: a(href="#") Contact Us
+								li.small: a(href="#") Careers
+								li.small: a(href="#") Policies
+								li.small: a(href="#") Corporate Rates
+						.col.col-lg-4.col-md-4.col-sm-12.col-xs-12
+							h4.small FOLLOW US
+							.sns
+								a(href="#"): img(src="/images/logo/facebook.png")
+								a(href="#"): img(src="/images/logo/twitter.png")
+								a(href="#"): img(src="/images/logo/instagram.png")
+					.row
+						.col.col-lg-12.col-md-12.col-sm-12.col-xs-12.copyright
+							p: small © MYSTAYS HOTEL MANAGEMENT Co., Ltd
+
+					//- You don't _have_ to include a link saying your site is powered by KeystoneJS, but we appreciate it!
+	
+	.overlay
+
+	.drawer.scroll(style="overflow:auto;")
+		ul.drawer-menu.drawer-header.list-unstyled
+			li
+				div(class="btn-group",role="group",aria-label="...")
+					div(class="btn-group group1",role="group")
+						ul.dropdown-menu
+							if user
+								if user.canAccessKeystone
+									li: a(href='/keystone') Open Keystone
+									li: a(href='/keystone/signout') Log Out
+							else
+								li: a(href='/keystone/signin') Log In
+						if user
+							if user.canAccessKeystone
+								button(type="button",class="btn dropdown-toggle",data-toggle="dropdown",aria-haspopup="true",aria-expanded="false")
+									span.glyphicon.glyphicon-user Hi! 山田
+										span.caret.glyphicon.glyphicon-menu-down
+						else
+							button(type="button",class="btn dropdown-toggle",data-toggle="dropdown",aria-haspopup="true",aria-expanded="false") User
+								span.caret.glyphicon.glyphicon-menu-down
+		p.small EXPLORE
+		ul.drawer-menu.drawer-contents.list-unstyled
+			li Mystays Hotels
+			li Destinations
+			li Member’s Stamp Card
+			li News & Special Offers
+		p.small OUR COMPANY
+		ul.drawer-menu.drawer-contents.list-unstyled
+			li About Us
+			li Contact Us
+			li Careers
+		p.small LOG IN / LOG OUT
+		ul.drawer-menu.drawer-contents.list-unstyled
+			if user
+				if user.canAccessKeystone
+					li: a(href='/keystone') Open Keystone
+				li: a(href='/keystone/signout') Log Out
+			else
+				li: a(href='/keystone/signin') Log In

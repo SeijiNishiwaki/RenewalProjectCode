@@ -1,0 +1,14 @@
+.row.rowSeparator55
+if data.attraction
+	.row.rowSeparator17
+		.col-lg-offset-2.col-md-offset-2.col-sm-offset-2.col-xs-offset-2.col-lg-8.col-md-8.col-sm-8.col-xs-8
+			h1#attractionHeaderTitle #{data.attraction.attractionInfos[0].content}
+	.row.rowSeparator40
+		.col-lg-offset-2.col-md-offset-2.col-sm-offset-2.col-xs-offset-2.col-lg-8.col-md-8.col-sm-8.col-xs-8
+			p#attractionHeaderContent #{data.attraction.attractionInfos[0].attractionListContent}
+	.row.rowSeparator40
+		.col-lg-offset-2.col-md-offset-2.col-sm-offset-2.col-xs-offset-2.col-lg-8.col-md-8.col-sm-8.col-xs-8
+			img(src=resizeCloudinaryUrl(data.attraction.attractionPagePhoto.picture.url,603,388))
+	.row.rowSeparator40
+		.col-lg-offset-2.col-md-offset-2.col-sm-offset-2.col-xs-offset-2.col-lg-8.col-md-8.col-sm-8.col-xs-8
+			p#attractionContent #{data.attraction.attractionInfos[0].attractionPageContent}

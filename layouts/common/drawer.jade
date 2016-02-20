@@ -1,0 +1,65 @@
+script(src='/js/jquery/jquery-1.11.2.min.js')
+script(src='/js/pi/header.js')
+script(src='/js/pi/highslideLoader.js')
+script(src='/js/pi/languageHelper.js')
+
+script(type='text/javascript').
+	var localHeader =!{JSON.stringify(header)}
+
+mixin languages(language)
+	li(id = "languageIso|"+  language.iso)
+		a #{language.localName}
+		//href="?languageIso="+language.iso) #{language.localName}
+
+#g_nav.clearfix
+	-var langParam = ''
+	if data.language
+		- langParam = '?languageIso='+ data.language.iso
+	a(href="/"+langParam, id="btnLogo")
+		img.logo.img-responsive.pull-left(src="/images/logo/logo.png",alt="MYSTAYS")
+	.search
+		form.navbar-form.navbar-left.hidden-xs(role='search')
+			span.glyphicon.glyphicon-search(aria-hidden='true')
+			.form-group
+				input.form-control.search(type='text', placeholder='Search')
+			button.btn.btn-default(type='submit') Submit
+	ul.list-inline.pull-right
+		li.language
+			div(class="btn-group",role="group",aria-label="...")
+				div(class="btn-group group1",role="group")
+					ul.dropdown-menu(id = "dropdownLanguage")
+						if header.languages.length
+							each language in header.languages
+								+languages(language)
+					button(type="button",class="btn dropdown-toggle",data-toggle="dropdown",aria-haspopup="true",aria-expanded="false" id="btnLanguage") Language
+						span.caret.glyphicon.glyphicon-menu-down
+		li.user.hidden-md.hidden-sm.hidden-xs
+			div(class="btn-group",role="group",aria-label="...")
+				div(class="btn-group group1",role="group")
+					ul.dropdown-menu
+						if user
+							if user.canAccessKeystone
+								li: a(href='/keystone') Open Keystone
+								li: a(href='/keystone/signout') Log Out
+						else
+							li: a(href='/keystone/signin') Log In
+					if user
+						if user.canAccessKeystone
+							button(type="button",class="btn dropdown-toggle",data-toggle="dropdown",aria-haspopup="true",aria-expanded="false") Hi! 山田
+								span.caret.glyphicon.glyphicon-menu-down
+					else
+						button(type="button",class="btn dropdown-toggle",data-toggle="dropdown",aria-haspopup="true",aria-expanded="false") User
+							span.caret.glyphicon.glyphicon-menu-down
+		li
+			ul.list-unstyled
+
+				if user
+					if user.canAccessKeystone
+						div(class="btn-group hidden-md hidden-sm hidden-xs",role="group",aria-label="...")
+							div(class="btn-group group1",role="group")
+								ul.dropdown-menu
+									li: a(href='/keystone') Open Keystone
+
+
+		li.drawer-trigger.hidden-lg.pull-right
+			span.glyphicon.glyphicon-menu-hamburger(area-hidden="true")
