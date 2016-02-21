@@ -1,0 +1,2730 @@
+// Bootstrap
+// =========
+
+// You can include less bootstrap components if you like by
+// importing the .less files you want directly, instead of
+// the main bootstrap/bootstrap.less file.
+//
+// Bootstrap can be removed entirely by deleting this line.
+
+@import "bootstrap/bootstrap.less";
+
+// The easiest way to customise Bootstrap variables while
+// being able to easily override the source files with new
+// versions is to override the ones you want in another file.
+//
+// You can also add your own custom variables to this file for
+// use in your site stylesheets.
+
+@import "site/variables.less";
+
+// Add your own site style includes here
+// Site Styles
+
+ul{margin:0;padding:0;list-style:none;}
+//caret & dropdownmenu
+.btn-group.open .dropdown-toggle 					{box-shadow:none;}
+.dropdown-toggle 									{z-index:9999 !important;}
+
+// ===================================== bootstrap＋
+
+//border
+.no-border{border:none;}
+//gutter
+.row-left{padding-left:0;}
+.row-right{padding-right:0;}
+.list-v-padding-10{padding-top:10px;padding-bottom:10px;}
+
+//=====================================
+// CONTENTS
+// 1. COLOR
+// 2.
+
+// =====================================
+// 				 COLOR
+// =====================================
+
+	//brand color
+	@black: 		#1e2432;//footer
+	@textblack: 	#333333;//text
+	@lightblue:		#edf5fc;
+	@deepblue:		#1e2431;
+	@white: 		#ffffff;//ghost
+	@darkgray:		#6d6d6d;
+	@gray: 			#aaaaaa;//brand
+	@lightgray: 	#c1c1c1;//hr border
+	@textgray:      #8e8e8e;
+	@bggray: 		#eeeeee;//background用
+	@blue: 			#0079ff;//link focus
+	//brand color
+	@c-ms: 			#2955a5;
+	.c-ms{color:@c-ms;}
+	@c-fl: 			#7cb23f;
+	.c-fl{color:@c-fl;}
+	@c-ml: 			#f26b36;
+	.c-ml{color:@c-ml;}
+
+	.textblack{color:@textblack !important;}
+	.blue{color:@blue !important;}
+	.gray{color:@gray !important;}
+	.lightgray{color:@lightgray !important;}
+	.darkgray{color:@darkgray !important;}
+
+	//font
+	.proximanova(){font-family:"Source Sans Pro",'メイリオ',Meiryo,'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','ＭＳ Ｐゴシック',sans-serif;}
+	.merriweather(){font-family:'Source Sans Pro','メイリオ',Meiryo,'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','ＭＳ Ｐゴシック',sans-serif;}
+	.proximanova-s(){font-size:15px;.proximanova();}
+	.defaultFont(){font-family:"Source Sans Pro",'メイリオ',Meiryo,'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','ＭＳ Ｐゴシック',sans-serif;}
+	.body 					{.proximanova-s();color:@textblack;}
+	brand 					{.proximanova-s();color:@gray;}
+
+// =====================================
+// 			HOVER EFFECT
+// =====================================
+
+	.hover-list-effect1(@color:@blue){
+		li{cursor:pointer;}
+		li:hover{color:@color;}
+		li span {display:none;}
+		li:hover span {float:right;color:@color;display:inline;}
+	}
+
+	//background 変更オプション
+	.hover-list-effect2(@color:@blue,@bg-color:#edf5fc){
+		li{cursor:pointer;}
+		li:hover{color:@color;background:@bg-color;}
+		li span {display:none;}
+		li:hover span {float:right;color:@color;display:inline;}
+	}
+
+// =====================================
+// 				DRAWER
+// =====================================
+	@drawerWidth: 400px;
+	html,body　					{height:100%;}
+	.overlay　					{position: fixed;z-index:9000;background:rgba(0,0,0,.5);top: 0;width: 100%;height: 100%;display:none;}
+	.drawer　					{position: fixed;z-index:9999;right:0;/*right:-@drawerWidth - 20px;*/top:0;width: @drawerWidth;display:none;height: 100%;background: #eee;box-shadow: 0 10px 50px 0px;-webkit-box-shadow: 0 10px 50px 0px;-moz-box-shadow: 0 10px 50px 0px;-o-box-shadow: 0 10px 50px 0px;-ms-box-shadow: 0 10px 50px 0px;}
+	.drawer ul 					{margin:0;padding:0;}
+	.drawer-menu　				{margin:0 0 0 30px;padding:0;}
+	.drawer .glyphicon-user 	{margin:0 20px 18px 0;}
+	.drawer-header li 			{border-bottom:2px solid @gray;margin-bottom:30px;}
+	.drawer-contents li 		{margin:5px 0 5px 0;padding:5px 0 5px 0;}
+	@media (max-width:767px){
+	.drawer						{padding:64px 20px 0 20px;}
+	}
+	@media (min-width:768px){
+	.drawer						{padding:64px 45px 0 45px;}
+	}
+
+//==========================================
+//              GLOBAL CLASSES
+//==========================================
+	.rowSeparator6{padding-bottom:6px;}
+	.rowSeparator17{padding-bottom:17px;}
+	.rowSeparator30{padding-bottom:30px;}
+	.rowSeparator40{padding-bottom:40px;}
+	.rowSeparator42{padding-bottom:42px;}
+	.rowSeparator50{padding-bottom:50px;}
+	.rowSeparator55{padding-bottom:55px;}
+	hr {
+		margin: 0;
+		border-color: @gray;
+	}
+	.nopadding {
+		padding: 0 !important;
+		margin: 0 !important;
+	}
+	.nopadding-left {
+		padding-left: 0 !important;
+		margin-left: 0 !important;
+	}
+	.nopadding-right {
+		padding-right: 0 !important;
+		margin-right: 0 !important;
+	}
+	.contentRow {
+		width: 940px;
+	}
+	.date {
+		font-size: 15px;
+		color: @textgray;
+		font-weight: normal;
+		line-height: 23px;
+	}
+
+	.fixOverlayDiv {
+		position: relative;
+		width: 100%;
+		padding: 0px;
+	}
+
+	.OverlayText {
+		bottom: 0px;
+		color: @white;
+		position: absolute;
+		width: 100%;
+		font-size: 15px;
+		padding-left: 30px;
+		padding-bottom: 40px;
+		padding-right: 20px;
+		line-height: 24px;
+	}
+	.glyphicon {top: 3px;}
+	.affix {
+		top: 0;
+		width: 100%;
+		z-index: 9999 !important;
+		background: @white;
+	}
+	.imgCustom {
+		max-width: 100%;
+		max-height: 100%;
+	}
+	.img-responsive-fill {width: 100%;}
+
+// =====================================
+// 				Responsive
+// =====================================
+	@import "site/layout.less";
+	.no-padding {padding: 0 !important;}//場所が違う？
+	.row {position: relative;}//場所が違う？
+	h1, h3, h4 {margin: 0;}
+	p {margin: 0;}
+	address { margin: 0;}
+	.p {margin-bottom: 30px;}
+	@media (min-width:768px) {
+		.hr {margin-top: 65px;}
+		.hr-m {margin-top: 40px;}
+		.hr-s {margin-top: 20px;}
+		.hr-xs {
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
+		.hr-20-40 {
+			margin-top: 20px;
+			margin-bottom: 40px;
+		}
+	}
+	@media (max-width:767px) {
+		.hr {margin-top: 30px; }
+		.hr-m {margin-top: 40px;}
+		.hr-s {
+			margin-top: 40px;
+			padding-bottom: 20px;
+		}
+		.hr-xs {
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
+		.hr-20-40 {
+			margin-top: 20px;
+			margin-bottom: 40px;
+		}
+	}
+	.dl-list {
+		dt {
+			color: @gray;
+			font-weight: normal;
+		}
+	}
+	.dl-history {
+		dt {
+			text-align: left;
+			width: 4em;
+			float: left;
+		}
+		dd {
+			border-left: 1px solid @blue;
+			padding-bottom: 20px;
+			margin-left: 4em;
+			ul {
+				margin-left: 2em;
+			}
+		}
+	}
+
+
+// =====================================
+// 				HEADER g_nav
+// =====================================
+	#g_nav 						{
+		border-bottom:1px solid @lightgray;
+		.dropdown-menu 			{top:21px;}
+		.dropdown-toggle　		{margin-top:-8px;}
+		.navbar-form 			{margin-top:-3px;padding-left:28px;}
+		.form-control 			{border:none;box-shadow:none;}
+		.search button 			{display:none;}
+		button 					{background:none !important;}
+		.user{
+			.dropdown-menu　		{left:-80px;}
+		}
+	}
+	//１０２４ｐｘ以上
+	@media (min-width: 1041px) {
+		.drawer-container 				{
+								padding-left:53px;padding-right:53px;max-width:1024px;
+								margin:auto;
+		}
+		.header-container 		{width:1024px;margin:0 auto;}
+	}
+
+
+
+	//スマホ タブレット以外
+	@media (min-width:768px) {
+		.r-border 				{border-right:1px solid @gray;}
+		.separator-left 			{padding-left:11.5px;
+			& > .col 				{border-left:1px solid @gray;padding-left:23px;}
+		}
+		// .section-news 			{padding-left:24px;}
+		#g_nav,#site-footer{
+			.logo  			{width:240px;padding-right:20px;margin-top:-6px;border-right:1px solid @gray;}
+		}
+		#g_nav 					{height:64px;padding:20px 30px;}
+	}
+
+
+	//スマホ　タブレットのみ
+	@media (max-width:767px) {
+		.logo-wrapper 			{width:50%;}
+		.logo 					{width:130px;margin-top:0px;}
+		#g_nav 					{height:64px;padding:20px 17px;}
+		// .header-mess			{position:absolute;bottom:450px;left:50%;width:250px;margin-left:-125px;display:hidden;}
+		.section .img-responsive{margin:0 auto;}
+		// .col 					{margin-top:20px;}
+		.section 				{border-bottom:1px solid @lightgray;margin-bottom:40px;padding-bottom:20px;}
+
+	}
+
+
+
+// =====================================
+// 				Parts
+// =====================================
+	//caret
+	.hukidasi-style() {
+		content: "";
+		position: absolute;
+		margin-left: -3px;
+		display: none;
+		width: 0px;
+		height: 0px;
+		border-style: solid;
+		border-width: 0 9px 9px 9px;
+	}
+
+	.caret {
+		margin-left: 10px;
+	}
+
+	.caret {
+		position: relative;
+		border: none !important;
+		vertical-align: text-top;
+		margin-left: 10px !important;
+		color: @gray;
+	}
+	//吹き出し
+	.hukidasi {
+		top: 15px;
+		z-index: 1;
+		border-color: transparent transparent @white transparent;
+		.hukidasi-style();
+	}
+
+	.hukidasi-border {
+		top: 14px;
+		z-index: 0;
+		border-color: transparent transparent @gray transparent;
+		.hukidasi-style();
+	}
+
+	.open .hukidasi {
+		display: block !important;
+	}
+
+	.open .hukidasi-border {
+		display: block !important;
+	}
+
+
+
+//=============================
+//              PARTS
+//=============================
+
+	// =====================================
+	// 			RSV-MODULE/ RSV-MODULE-HOTEL
+	// =====================================
+		#rsv-module　 {
+			padding: 50px 0;
+			width: 918px;
+			.btn-default:hover,
+			.btn-default:focus,
+			.btn-default.focus,
+			.btn-default:active,
+			.btn-default.active, //　hover forcus 時のボーダーエフェクト
+			.open > .dropdown-toggle.btn-default　 {
+				border-color: @blue;
+				border-width: 2px;
+			}
+
+			.btn-default.focus, //選択時、下のボーダーを見えなくする
+			.open > .dropdown-toggle.btn-default　 {
+				border-bottom: 1px solid @gray;
+			}
+			.group3.k-datepicker {display: block;}
+			.k-datepicker {
+				height: 54px;
+				width: 147px;
+			}
+			.k-datepicker .k-select {display: none;}
+			.k-datepicker .k-picker-wrap {padding: 0;}
+			.k-picker-wrap.k-state-default {background: @white;}
+			//kendoui dropdown
+			.group1 .k-dropdown {
+				max-height: 54px;
+				height: 54px !important;
+				width: 261px;
+				text-align: left;
+				vertical-align: text-bottom;
+				background: @white !important;
+			}
+			.group1 .k-dropdown .k-input {
+				height: 54px !important;
+				width: 261px;
+				padding-top: 13px;
+			}
+			.group1 .k-dropdown .k-dropdown-wrap {height: 480px;}
+			.group1 .k-dropdown-wrap.k-state-default {
+				text-indent: 18px!important;
+				max-height: 52px !important;
+				width: 261px;
+				background: @white !important;
+			}
+			.group1 .k-dropdown-wrap.k-state-default .k-input {text-indent: 18px !important;}
+			//adults
+			.group4 .k-dropdown {
+				max-height: 54px;
+				height: 54px !important;
+				width: 147px;
+				text-align: left;
+				vertical-align: text-bottom;
+				background: @white !important;
+			}
+			.group4 .k-dropdown .k-input {
+				height: 54px !important;
+				min-width: 147px;
+				padding-top: 13px;
+			}
+			.group4 .k-dropdown .k-dropdown-wrap {height: 480px;}
+			.group4 .k-dropdown-wrap.k-state-default {
+				text-indent: 18px!important;
+				max-height: 52px !important;
+				max-width: 147px;
+				background: @white !important;
+			}
+			.group4 .k-dropdown-wrap.k-state-default .k-input {text-indent: 18px !important;}
+			.group4 .k-select {display: none;}
+			//各メニューの幅
+			.group1 /*Select City Property 	*/ {
+				width: 261px;
+				height: 54px;
+				position: static;
+			}
+			.group2 /*Check In 				*/ {
+				width: 147px;
+				height: 54px;
+				position: static;
+			}
+			.group3 /*Check Out 			*/ {
+				width: 147px;
+				height: 54px;
+				position: static;
+			}
+			.group4 /*Adult 				*/ {
+				width: 147px;
+				height: 54px;
+				position: static;
+			}
+			.group5 /*Check Rates 			*/ {
+				width: 213px;
+				height: 54px;
+				position: static;
+			}
+			.btn-black {
+				background: @black;
+				color: @white !important;
+			}
+		}
+		#rsv_module_hotel {
+			height: 104px;
+			padding-top: 50px;
+			/*.k-datepicker {
+				height: 54px;
+				width: 147px;
+			}*/
+			.k-datepicker .k-select {display: none;}
+			.k-datepicker .k-picker-wrap {padding: -1px,-1px,-1px,-1px;}
+			.k-picker-wrap.k-state-default {
+				background: @white;
+				height: 53px;
+			}
+
+			//adults
+			.group4 .k-dropdown {
+				max-height: 54px;
+				height: 54px !important;
+				width: 147px;
+				text-align: left;
+				vertical-align: text-bottom;
+				background: @white !important;
+			}
+			.group4 .k-dropdown .k-input {
+				height: 54px !important;
+				min-width: 147px;
+				padding-top: 13px;
+			}
+			.group4 .k-dropdown .k-dropdown-wrap {height: 480px;}
+			.group4 .k-dropdown-wrap.k-state-default {
+				text-indent: 18px!important;
+				max-height: 52px !important;
+				max-width: 147px;
+				background: @white !important;
+			}
+			.group4 .k-dropdown-wrap.k-state-default .k-input {text-indent: 18px !important;}
+			.group4 .k-select {display: none;}
+			.group2 /*Check In 				*/ {
+				width: 147px;
+				height: 54px;
+				position: static;
+			}
+			.group4 /*Adult 				*/ {
+				width: 147px;
+				height: 54px;
+				position: static;
+			}
+			.group5 /*Check Rates 			*/ {
+				width: 147px;
+				height: 54px;
+				position: static;
+			}
+			.btn-black {
+				background: @black;
+				color: @white !important;
+			}
+		}
+		//kendoui
+		#selCities_listbox {
+			.k-item {
+				text-indent: 18px!important;
+				background-color: @white !important;
+				.proximanova-s();
+				color: @black;
+				height: 40px;
+			}
+			.k-item.k-state-hover {
+				background-color: @lightblue !important;
+				color: @blue;
+			}
+			.k-item.k-state-selected {
+				background-color: @white !important;
+				color: @blue;
+			}
+		}
+		#selNumAdults_listbox {
+			.k-item {
+				text-indent: 18px!important;
+				background-color: @white !important;
+				.proximanova-s();
+				color: @black;
+				height: 40px;
+			}
+			.k-item.k-state-hover {
+				background-color: @lightblue !important;
+				color: @blue;
+			}
+			.k-item.k-state-selected {
+				background-color: @white !important;
+				color: @blue;
+			}
+		}
+		#selNumChilds_listbox {
+			.k-item {
+				text-indent: 18px!important;
+				background-color: @white !important;
+				.proximanova-s();
+				color: @black;
+				height: 40px;
+			}
+			.k-item.k-state-hover {
+				background-color: @lightblue !important;
+				color: @blue;
+			}
+			.k-item.k-state-selected {
+				background-color: @white !important;
+				color: @blue;
+			}
+		}
+		#dteCheckIn {
+			text-indent: 18px !important;
+		}
+		#dteCheckOut {
+			text-indent: 18px !important;
+		}
+		.btn-rsv {
+			margin-top: 20px;
+			text-align: center;
+			padding: 10px 1em;
+			color: white;
+			background: @black;
+			font-size: 15px;
+			text-decoration: none;
+			cursor: pointer;
+			a {
+				color: @white;
+			}
+		}
+
+	//======================================
+	//              SIDE BAR
+	//======================================
+		#ulSidebar {
+		   .hover-list-effect1;
+			font-size: 17px;
+			color: @darkgray;
+			margin-top: 50px;
+			margin-bottom: 30px;
+			li {
+				padding-top: 5px !important;
+				padding-bottom: 5px !important;
+				a {
+					color: @gray-light;
+					padding-top: 0px;
+					padding-bottom: 0px;
+				}
+				a:hover {color: @blue;}
+			}
+		}
+
+//====================================================================
+//              CLASSES FOR PAGES (Move to another less file)
+//====================================================================
+
+	//=============================
+	//              INDEX
+	//=============================
+		.l-headerarea{
+		#rsv-module 							        {position:absolute;margin-left:-459px;left:50%;top:0;}
+		}
+		//for reseravtion bar
+		.top-mess-area									{position:absolute;}
+		.top-mess,
+		.top-mess-dev 									{position:absolute;width:100%;}
+		.top-mess-area,
+		.top-mess-dev 									{left:20px;}
+		.top-mess,
+		.top-mess-dev,
+		.top-mess-area{
+			.text 										{padding-top:20px;}
+		}
+		.top-mess,
+		.top-mess-area,
+		.top-mess-dev{
+			.header							            {.merriweather();font-size:49px;color:@white;}
+			.latest-dev 					            {.merriweather();font-size:20px;color:@white;}
+			p 								            {.proximanova();font-size:20px;color:@white;}
+			a 								            {.proximanova();font-size:15px;color:@white;}
+		}
+		@media(max-width:767px) {
+			.top-mess,
+			.top-mess-area,
+			.top-mess-dev {
+				.header {
+					.merriweather();
+					font-size: 25px;
+					color: @white;
+				}
+				p {
+					.proximanova();
+					font-size: 14px;
+					color: @white;
+				}
+			}
+		}
+		@media (min-width: 1041px) {
+			.top-mess 				{bottom:80px;}
+			.top-mess-area 			{bottom:50px;}
+			.top-mess-dev 			{bottom:20px;}
+		}
+		//スマホ タブレット以外
+		@media (min-width:768px) and (max-width:1040px) {
+			.top-mess 				{bottom:50px;}
+			.top-mess-area 			{bottom:50px;}
+			.top-mess-dev 			{bottom:20px;}
+		}
+		//スマホ　タブレットのみ
+		@media (max-width:767px) {
+			.top-mess 				{bottom:20px;}
+			.top-mess-area 			{bottom:25px;}
+			.top-mess-dev 			{bottom:0px;}
+		}
+
+	//======================================
+	//          HOTEL
+	//======================================
+		.btn-learnMore {
+			@media (min-width:768px) {margin-top:20px;}
+			@media (max-width:768px) {margin-top:5px;}
+			text-align: center;
+			padding: 10px 1em;
+			color: white;
+			background: @black;
+			font-size: 15px;
+			text-decoration: none;
+			cursor: pointer;
+			border:0;
+			width:100%;
+			a {color: @white;}
+		}
+		#bannerPhoto {
+				width: 100%;
+				max-height: 300px;
+			}
+		//Hotel
+		#hotel {
+			@media(max-width:767px) {
+				.detail-list {padding-left: 24px;}
+			}
+			.row {margin: 0 0 0 0;}
+			.content-row {width: 100%;}
+			/*.section {
+				margin-top: 50px;
+				margin-bottom: 50px;
+			}
+
+			.sub-section {
+				margin-top: 40px;
+				margin-bottom: 40px;
+
+				&:first-child {
+					margin-top: 0px;
+				}
+
+				&:last-child {
+					margin-bottom: 0px;
+				}
+			}*/
+			.hotelEntireRow {max-width: 1000px;}
+			#hotel-details {
+				.tab {padding-bottom: 15px;}
+				.detail-header {
+					color: @gray;
+					font-weight: normal;
+				}
+				.detail-list {
+					li {
+						padding-top: 5px;
+						padding-bottom: 5px;
+						img {float: left;}
+						p {
+							text-align: right;
+							display: inline-block;
+							padding: 0;
+							padding-left: 5px;
+						}
+					}
+					font-weight: normal;
+				}
+				.restaurantDetails {padding-left: 24px;}
+				.restaurantName {
+					padding-left: 5px;
+					display: inline-block;
+				}
+			}
+			.hotelInfo {padding-left: 24px;}
+			.header-title {color: @gray;}
+			.hotel-info-list li {padding-bottom: 8px;}
+		}
+		#rooms {
+			@modal-backdrop-bg:           #000;
+			@modal-backdrop-opacity:      .2;
+			.row {overflow: hidden;}
+			[class*="col-"] {
+				margin-bottom: -99999px;
+				padding-bottom: 99999px;
+			}
+		  .in {
+			//background: @black;
+			}
+			.modal-dialog{
+				 padding-top:110px;
+			}
+		   .modal-header{
+				background-color: @black;
+				color: @white;
+				font-size : 25px;
+				padding-bottom: 50px;
+				border-bottom:0px;
+				word-wrap: break-word;
+				display:inline-block;
+				width:100%;
+				.close{
+					color:@white;
+					opacity: 1;
+					font-size:35px;
+				}
+			}
+		   .modal-content{
+			   border-radius: 0 !important;
+		   }
+		   .modal-body{
+			   .room-title{
+				   font-size: 20px;
+			   }
+			   .detail-list {
+					li {
+						padding-top: 5px;
+						padding-bottom: 5px;
+						img {float: left;}
+						p {
+							text-align: right;
+							display: inline-block;
+							padding: 0;
+							padding-left: 12px;
+						}
+					}
+					font-size:15px;
+				}
+		   }
+		}
+		#hotelList {
+		   .row {
+				display: table;
+			}
+			[class*="col-"] {
+				float: none;
+				display: table-cell;
+				vertical-align: top;
+			}
+		}
+		#hotelAboutSection {
+			.row {overflow: hidden;}
+			[class*="col-"] {
+				margin-bottom: -99999px;
+				padding-bottom: 99999px;
+			}
+		}
+
+	// ======================================
+	//                ATTRACTIONS
+	// ======================================
+		.centerTitle {
+			text-align: center;
+			font-size: 25px;
+			color: @textblack;
+			font-weight: normal;
+		}
+
+		.centerTitleContent {
+			text-align: center;
+			font-size: 21px;
+			color: @textblack;
+			font-weight: lighter;
+			line-height: 30px;
+		}
+
+		.centerTitleContentNews {
+			text-align: center;
+			font-size: 30px;
+			color: @textblack;
+			font-weight: lighter;
+			line-height: 37px;
+		}
+		#attractions .caption 	{font-size:18px;}
+
+	//========================================
+	//              NEWS
+	//========================================
+		.newsTitle {
+			font-size: 20px;
+			color: @textblack;
+			font-weight: normal;
+		}
+
+		.newsContent {
+			font-size: 15px;
+			color: @textblack;
+			font-weight: normal;
+			line-height: 23px;
+		}
+
+	//========================================
+	//              DESTINATIONS
+	//========================================
+		.destinationListFixOverlayDiv {
+			position: relative;
+			width: 100%;
+			padding: 0px;
+		}
+		.destinationListOverlayText {
+			bottom: 0px;
+			color: @white;
+			position: absolute;
+			width: 100%;
+			font-size: 15px;
+			padding-left: 30px;
+			padding-bottom: 40px;
+			padding-right: 20px;
+			line-height: 24px;
+		}
+		.destinationListPadding {
+			padding-left: 12px;
+			padding-right: 12px;
+			margin: 0;
+		}
+		.destinationListNoPadding {
+			padding-left: 0;
+			padding-right: 0;
+			margin: 0 !important;
+		}
+		.destinationListPicturePaddingLeft {
+			padding-left: 12px !important;
+			padding-right: 0;
+		}
+		.destinationListPicturePaddingRight {
+			padding-left: 6px !important;
+			padding-right: 12px !important;
+		}
+		#destinations{
+			.caption 										{padding:15px 0 15px 0;text-align:center;border-bottom:2px solid @black;}
+			@media (max-width:768px){
+				.caption 										{margin-bottom:20px;}
+				}
+		}
+//==========================
+//          FOOTER
+//==========================
+	#site-footer 										{
+		background:@black;
+		color:@white;
+		h4　												{margin-bottom:20px;}
+		a 												{color:@white;}
+		.copyright										{margin-top:120px;}
+	}
+	@media(max-width:767px) {
+		#site-footer {
+			padding-top: 30px;
+			padding-bottom: 30px;
+		}
+		.footer-link {
+			margin-top: 30px;
+			margin-bottom: 30px;
+
+			li {
+				padding-top: 5px;
+				padding-bottom: 5px;
+			}
+		}
+	}
+	@media(min-width:768px) {
+		#site-footer {
+			padding-top: 60px;
+			padding-bottom: 60px;
+		}
+	}
+	#site-sub-footer {
+			margin-top: 65px;
+			background: @bggray;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//
+// 				Dev branch
+//
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+	//ISSUE
+//up時に　uatの影響で崩れるので以下スタイルを無効化
+	/*-------------*/
+	/* Search-area
+	/*-------------*/
+
+		// #searcharea{
+		// 		@height:150px;
+		// 		@v-padding:30px;
+		// 		@selectbox-v-padding: ((@height - @v-padding * 2) - 40px) /2;
+		// 		//uat 設定
+		// 		// height:@height;padding:@v-padding 0;
+		// 		padding-top:40px;padding-bottom:40px;
+
+
+//sp関連
+	//画像上テキストの収まり
+	//local-navの収まり
+	//local-navの　sticky設定　（overviewだけ？　他のページもだとdevなどに違和感があるが。。。
+//.local-nav-2もtitle-sectionとロジックが同じなので　構造を同じにしても良いかも知れない(できるときに)
+//borderのロジックが何パターンかあるのでもう少しまとめたい
+//text関連のスタイルが何パターンかあるのでまとまればまとめたい
+
+
+
+
+
+//.m-section .m-text-area の　.text-area-text にm-sub-sectionがないので感覚が広い
+//応急処置で　シグネチャによる修正　後　.m-text-areaの使用状況を確かめる
+	// #overview .text-area-text:first-child{padding-top:0;}
+//uat マージの上書きが原因
+	//hoteltop detaillist のpaddingが無くなった　detail-list li にpaddingを設定
+	//destinationTop　の　hr に　hr-f　の設定が無いため　マージンが利いていない というか　hrにスタイルつけたら都合悪かったんだっけ？
+	//title-sectionの仕様が怪しい　ばらばらの可能性
+	//hoteltop detaillist のアイコンとテキストが横並びにならない detail-list p display:inline ＋　iconのimg-responsiveを削除
+	//hoteltop detaillist のpaddingが無くなった　detail-list li にpaddingを設定
+	// .detail-list{
+	// 	li {padding-top:10px;padding-bottom:10px;}
+	// 	p {display:inline;}
+	// 	.img-responsive {display:inline;}//uatマージ対策
+	// }
+	//hoteltop rooms のreserveボタンが画像のラインからはみ出る　m-media セレクターがなくなっている
+
+//決定//
+	//section　間のボーダー設定のとき　sectionの幅が違うと　border の幅が合わない
+		// #attraction-article .hr{width:83.33333333%;margin-left:auto;margin-right:auto;}
+		// #attraction-article .container .hr:last-child{width:100%;}//なぜか利かない。。。　ので下のスタイルで設定
+			.hr-col-10{width:83.33333333%;margin-left:auto;margin-right:auto;}
+	//m-image-text-area のテキストの位置が　destination と　team などで異なる　他にもあるかも
+		// 共通設定で　bottom 20px left 20px にして　異なる部分はシグネチャで対応
+	//title-section以下main side構成のボーダーがある場合
+		// .l-section-main>.l-section:first-child .l-sub-section:first-child　のロジックだとボーダーがはみ出るので.add-hr-border() を設定
+	//index の　top-mess の位置調整
+		// @media (min-width:768){
+		// 	.top-mess {top:40%;}
+		// }
+	//weddingのtitle-sectionが構造違うので修正
+		//pressのタイトルセクションに合わせる
+		//-> まだ　atractions も　同じだった　。。。　weddingをベースにしているページをチェック ...ok!
+	//sectionにタイトルがない場合レイアウトが崩れるので　.l-sectionで引っ張りあげるほうほうを撮るか？ col設定が大変
+		// セクションからすぐにコンテンツセクションになったとき　で設定
+		// .l-section　> .l-sub-section-contents:first-child {padding-top:0;}//副作用があるのでロジックを変えるかページカスタム
+		// これは　l-sub-section-contents のロジックをはずしたほうがよいか？
+
+	//privacy のtitle-sectionがなぜか　fluidなので　container に変更
+		//containerに変更
+	//dev,management,consultation,content のフッター上パディングが消えた？　#area-top がついている
+		//不要なページから　#area-top　を削除
+	//jobs jobs-listのボーダーが重ならないbottomだけ設定　一番上はsectionのボーダー設定で表示
+		//難しいので　job-listに　first-childを設定
+		// .m-job-list:first-child{border-top:1px solid @gray;}
+	//jobs の　module-title を　h2 に設定　（現在p）
+		//#site-sub-footer の上に 70が利いているので　50に上書き
+			// #area-top .container .l-section:last-child {padding-bottom:0;}
+			// #site-sub-footer {padding-bottom:@section-padding-lg;}
+			// できるだけシグネチャはかけたくないので、#site-sub-footerをネガティブマージンで引っ張りあげることで解決（footer上のpaddingが変更になったらずれる)
+//=====================================
+// CONTENTS
+// 1. Base
+	// 1. reset
+	// 2. padding-size
+// 2. Thema
+	// 1. color
+	// 2. font-family,color
+	// 3. state
+// 3. Structure
+	// 1. font-size
+	// 2. parts
+	// 3. modules
+	// 4. layout
+// 4. Responsive
+	// 1. desktop > 1024
+	// 2. desktop
+	// 3. mobile tablet
+	// 4. col 10 8 4 2
+// 5. Page Custome
+	// 1. index
+	// 2. hotel page
+	// 3. hotel list
+	// 4. area list
+	// 5. overview
+	// 6. attractionList
+	// 7. news-specialoffers-article
+	// 8. jobs-detail
+
+
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//
+// 				Dev style
+//
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// .row,.col{border:1px solid gray;}
+
+// .l-section-wrapper {border:3px solid orange;}
+// .l-section-main 	{border:3px solid pink;}
+// .l-section-side 	{border:3px solid pink;}
+// .l-section,
+// .l-sub-section-fluid-photos{border:1px solid transparent;}
+// .l-section,
+// .l-sub-section-fluid-photos,
+// .l-header,
+// .l-section-about-local-nav{border:1px solid red;}
+
+// .l-sub-section-contents,
+// .l-sub-section,
+// .l-sub-header{border:1px solid blue;}
+// .m-sub-section,
+// .m-bottom-link {border:1px solid green;}
+// .l-right-side,
+// .l-left-side{border:1px solid blue;}
+// .l-left-main,
+// .l-right-main{border:1px solid red;}
+
+// .m-sub-section::before{color:green;content:"module-margin:@{module-padding-lg}";position:absolute;top:-@module-padding-lg;right:0;}
+// .l-section-wrapper::before 							{color:green;content:"module-margin:@{module-padding-lg}";position:absolute;top:-@module-padding-lg;right:0;}
+// .container .l-section:only-child::before			{color:green;content:"module-margin:@{module-padding-lg}";position:absolute;top:-@module-padding-lg;right:0;}
+// .l-section:first-child::before 						{color:green;content:"module-margin:@{module-padding-lg}";position:absolute;top:-@module-padding-lg;right:0;}
+// .l-section::before 									{color:green;content:"module-margin:@{module-padding-lg}";position:absolute;top:-@module-padding-lg;right:0;}
+// .l-section > .l-sub-section:first-child::before 	{color:green;content:"module-margin:@{module-padding-lg}";position:absolute;top:-@module-padding-lg;right:0;}
+// .l-section > .l-sub-section::before 				{color:green;content:"module-margin:@{module-padding-lg}";position:absolute;top:-@module-padding-lg;right:0;}
+// .l-sub-section-contents::before						{color:green;content:"module-margin:@{module-padding-lg}";position:absolute;top:-@module-padding-lg;right:0;}
+// .l-title-section::before 							{color:green;content:"module-margin:@{module-padding-lg}";position:absolute;top:-@module-padding-lg;right:0;}
+//
+
+
+
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//
+// 				BASE
+//
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+// =====================================
+// 				Reset
+// =====================================
+
+	dl{margin-bottom:0;}
+	h1,h2,li								{line-height:0.8;}
+	h3 									{font-size:20px;}
+	ul 									{margin:0;padding:0;list-style:none;}
+	.row 								{position:relative;}//.rowにpositionを利かせる
+	h1,h3,h4 							{margin:0;}
+	p 									{margin:0;}
+	a:hover 							{text-decoration:none;}
+	address 							{margin:0;}
+	.p 									{margin-bottom:30px;}
+
+
+// =====================================
+// 				Padding-size
+// =====================================
+
+	@section-padding-md: 			50px;//section-top
+	@section-padding-sm: 			40px;//.section-side-top,bottom m-section-top side-top,bottom
+	@section-padding-xs: 			28px;
+	@section-padding-lg: 			70px;//footer-top
+
+	@module-padding-lg: 			40px;
+	@module-padding-md: 			35px;
+	@module-padding-dl: 			25px;//col?dl-list-padding
+	@module-padding-sm: 			24px;//col?media-title-top
+	@module-padding-xs: 			12px;//media-label-top
+
+
+	@section-padding-md-col10: 			50px;//section-top
+	@section-padding-sm-col10: 			35px;//m-section-top
+	// @section-padding-xs-col10: 			0px;
+	// @section-padding-lg-col10: 			70px;//footer-top
+
+	// @module-padding-lg-col10: 			30px;
+	// @module-padding-md-col10: 			30px;
+	@module-padding-sm-col10: 			30px;
+	// @module-padding-xs-col10: 			30px;
+
+
+	@section-padding-md-col8: 			40px;//section-top
+	@section-padding-sm-col8: 			35px;//m-section-top
+	// @section-padding-xs-col8: 			0px;
+	// @section-padding-lg-col8: 			70px;//footer-top
+
+	// @module-padding-lg-col8: 			30px;
+	// @module-padding-md-col8: 			30px;
+	@module-padding-sm-col8: 			30px;
+	// @module-padding-xs-col8: 			30px;
+
+
+	@section-padding-md-col4: 			40px;//section-top
+	@section-padding-sm-col4: 			35px;//m-section-top
+	// @section-padding-xs-col4: 			0px;
+	// @section-padding-lg-col4: 			70px;//footer-top
+
+	// @module-padding-lg-col4: 			30px;
+	// @module-padding-md-col4: 			30px;
+	// @module-padding-sm-col4: 			30px;
+	// @module-padding-xs-col4: 			30px;
+
+	@section-padding-md-col2: 			40px;//section-top
+	@section-padding-sm-col2: 			35px;//m-section-top
+	// @section-padding-xs-col2: 			0px;
+	// @section-padding-lg-col2: 			70px;//footer-top
+
+	// @module-padding-lg-col2: 			30px;
+	// @module-padding-md-col2: 			30px;
+	// @module-padding-sm-col2: 			30px;
+	// @module-padding-xs-col2: 			30px;
+
+
+
+
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//
+// 				THEMA
+//
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+// =====================================
+// 				Color
+// =====================================
+
+	@black: 		#1e2432;//footer
+	@textblack: 	#333333;//text
+	@lightblue:		#edf5fc;
+	@deepblue:		#1e2431;
+	@white: 		#ffffff;//ghost
+	@darkgray:		#6d6d6d;
+	@gray: 			#aaaaaa;//brand
+	@lightgray: 	#c1c1c1;//hr border
+	@textgray:      #8e8e8e;
+	@bggray: 		#eeeeee;//background用
+	@blue: 			#0079ff;//link focus
+	//brand color
+	@c-ms: 			#2955a5; 	.c-ms{color:@c-ms;}
+	@c-fl: 			#7cb23f; 	.c-fl{color:@c-fl;}
+	@c-ml: 			#f26b36; 	.c-ml{color:@c-ml;}
+	.textblack　		{color:@textblack !important;}
+	.blue　			{color:@blue !important;}
+	.gray　			{color:@gray !important;}
+	.lightgray　		{color:@lightgray !important;}
+	.darkgray　		{color:@darkgray !important;}
+
+
+
+// =====================================
+// 				Font-family,color
+// =====================================
+
+	/*-------------*/
+	/* Base
+	/*-------------*/
+
+		body 								{.proximanova-s();color:@textblack;}
+		h2 									{.merriweather();font-size:23px;color:@textblack;}
+		a 									{.proximanova-s();color:@blue;}
+		.brand 								{.proximanova-s();color:@gray;}
+
+
+	/*-------------*/
+	// Family
+	/*-------------*/
+
+		.proximanova() 						{font-family:"Source Sans Pro",'メイリオ',Meiryo,'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','ＭＳ Ｐゴシック',sans-serif;}
+		.merriweather() 					{font-family:'Source Sans Pro','メイリオ',Meiryo,'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','ＭＳ Ｐゴシック',sans-serif;}
+		.proximanova-s() 					{font-size:15px;.proximanova();}
+		.defaultFont() 						{font-family:"Source Sans Pro",'メイリオ',Meiryo,'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','ＭＳ Ｐゴシック',sans-serif;}
+
+
+	/*-------------*/
+	/* Parts
+	/*-------------*/
+
+		.brand 										{color:@gray;.proximanova-s();}
+
+
+	/*-------------*/
+	/* Module
+	/*-------------*/
+
+		//m-top-mess//
+		.top-mess,
+		.top-mess-area,
+		.top-mess-dev{
+			.header							{.merriweather();font-size:49px;color:@white;}
+			.latest-dev 					{.merriweather();font-size:20px;color:@white;}
+			p 								{.proximanova();font-size:20px;color:@white;}
+			a 								{.proximanova();font-size:15px;color:@white;}
+		}
+		@media(max-width:767px){
+			.top-mess,
+			.top-mess-area,
+			.top-mess-dev{
+				.header 					{.merriweather();font-size:25px;color:@white;}
+				p 							{.proximanova();font-size:14px;color:@white;}
+			}
+		}
+
+		//rsv-module//
+		#rsv-module .dropdown-links li 		{color:@gray;}
+
+	/*-------------*/
+	/* Page
+	/*-------------*/
+
+		//development
+		.m-latest-dev{
+			h2{.merriweather();}
+		}
+
+
+	/*-------------*/
+	/* option
+	/*-------------*/
+
+		//brand-indicator
+		.brand-indicator							{padding-left:10px;line-height:.8;}
+		.brand-indicator-ms							{border-left:5px solid @c-ms;color:@c-ms;}
+		.brand-indicator-fl							{border-left:5px solid @c-fl;color:@c-fl;}
+		.brand-indicator-ml							{border-left:5px solid @c-ml;color:@c-ml;}
+
+
+// =====================================
+// 				State
+// =====================================
+
+	/*-------------*/
+	/* list-effect
+	/*-------------*/
+
+	.hover-list-effect1(@color:@blue){
+		li 								{cursor:pointer;}
+		li:hover 						{color:@color;}
+		li span 						{display:none;}
+		li:hover span 					{float:right;color:@color;display:inline;}
+	}
+
+	.hover-list-effect2(@color:@blue,@bg-color:#edf5fc){
+		li 								{cursor:pointer;}
+		li:hover 						{color:@color;background:@bg-color;}
+		li span 						{display:none;}
+		li:hover span 					{float:right;color:@color;display:inline;}
+	}
+
+
+
+
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//
+// 				STRUCTURE
+//
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+// =====================================
+// 				Font-size
+// =====================================
+
+	/*-------------*/
+	/* Module
+	/*-------------*/
+
+		//m-media
+		.caption 							{font-size:18px;}
+
+		//m-top-mess//
+		.top-mess,
+		.top-mess-area,
+		.top-mess-dev{
+			.header							{font-size:49px;}
+			.latest-dev 					{font-size:20px;}
+			p 								{font-size:20px;}
+			a 								{font-size:15px;}
+		}
+		@media(max-width:767px){
+			.top-mess,
+			.top-mess-area,
+			.top-mess-dev{
+				.header 					{font-size:25px;}
+				p 							{font-size:14px;}
+			}
+		}
+
+		//local-nav
+		.local-nav 							{font-size:14px;font-weight:bold;}
+
+
+// =====================================
+// 				Parts
+// =====================================
+
+		.sns{
+			a 										{margin-right:24px;}
+		}
+
+		.text-box{padding-top:35px;}
+
+
+		//hotel #rooms の予約ボタン
+		.btn-reserve								{margin-top:20px;text-align:center;padding: 10px 1em;color: white;background: @black;font-size: 15px;text-decoration: none;cursor: pointer;
+			a 										{color:@white;}
+		}
+
+		.btn-learnMore 			    				{margin-top:20px;text-align:center;padding: 10px 1em;color: white;background: @black;font-size: 15px;text-decoration: none;cursor: pointer;
+			a 										{color:@white;}
+		}
+		@media(min-width:768px){
+			//.btn-rsv 								{float:right;margin-top:-20px;}
+		}
+		.btn-black 									{background:@black;color:@white;display:block;}
+		.btn-md 									{width:15em;padding:.8em 0;}
+		hr 											{margin:0;border-color:@gray;}
+
+		.ghost-button(@ghost-color:@textblack) 		{line-height:2.5;display:block;margin:0 auto;border-radius:4px;height:45px;width:215px;border:2px solid @ghost-color;text-align:center;color:@ghost-color;}
+		.ghost-button-blue 							{.ghost-button(@ghost-color:@blue);}
+
+		.btn-group 									{display:block;}
+
+
+// =====================================
+// 				Modules
+// =====================================
+
+	/*------------------*/
+	/* brought to you by
+	/*------------------*/
+
+	.m-brought-to-you-by li:first-child 			{padding-bottom:20px;}
+
+	/*---------------*/
+	/* dl-list
+	/*---------------*/
+
+	#accordion .panel-title 						{padding-bottom:20px;}
+
+
+
+	/*---------------*/
+	/* dl-list
+	/*---------------*/
+
+	//hoteltop detaillist のpaddingが無くなった　detail-list li にpaddingを設定
+	.detail-list{
+		li {padding-bottom:20px;}
+		p {display:inline;}
+		.img-responsive {display:inline;padding-right:10px;}//uatマージ対策
+	}
+
+
+	/*---------------*/
+	/* dl-list
+	/*---------------*/
+
+		.dl-list{
+			dt{color:@gray;font-weight: normal;}
+		}
+
+
+	/*---------------*/
+	/* dl-history
+	/*---------------*/
+
+		.dl-history{
+			dt{text-align:left;width:4em;float:left;}
+			dd {border-left:1px solid @blue;padding-bottom:20px;margin-left:4em;
+				ul{margin-left:2em;}
+			}
+		}
+
+
+	/*---------------*/
+	/* m-text
+	/*---------------*/
+
+		.m-text{
+			.title 				{font-weight:bold;}
+			.text 				{margin-top:20px;}
+		}
+
+
+	/*---------------*/
+	/* m-share
+	/*---------------*/
+
+		//footer sns icon
+		.m-share{
+			.icon 				{margin-left:20px;}
+		}
+
+
+	/*-------------------------*/
+	/* m-footer-mess(common)
+	/*-------------------------*/
+
+		.m-footer-mess 			{
+			padding-top:50px;padding-bottom:50px;//margin-bottom:50px;
+			border-top:1px solid @textblack;border-bottom:1px solid @textblack;
+			.title 									{padding-bottom:12px;}
+			.text 									{padding-bottom:12px;}
+			.footer-mess-text 						{line-height:1.2;}
+			.btn-black 								{margin-top:12px;}
+		}
+
+
+	/*-----------------------------*/
+	/* Rating(hotel-rating-section)
+	/*-----------------------------*/
+
+		.m-rating{
+			@size: 90px;
+			@width: 130px;
+			.rating-base 							{margin-bottom:20px;}
+			.rating-base p 							{float:left;}
+			.logo 									{padding-left:10px;}
+			.rateview>ul>li 						{float:left;}
+			.rate 									{color:@blue;font-size:30px;width:@width;}
+			.rate div 								{border:2px solid @blue;border-radius:5px;width:@size;height:@size;text-align:center;line-height:@size;}
+			.fiveraviews 							{position:relative;
+				> p 								{font-size:15px;padding-top:5px;padding-bottom:5px;top:-25px;width:@width + 10px;position:absolute;left:@width;}
+				ul li div 							{font-size:15px;padding-top:5px;padding-bottom:5px;float:left;width:@width;
+					.based-on-5-reviews li 			{padding-top:15px;padding-bottom:15px;}
+				}
+			}
+		}
+
+
+	/*-----------------*/
+	/* Button-Submit
+	/*-----------------*/
+		//parts?
+		.btn-submit									{background:@black;color:@white;padding-left:45px;padding-right:45px;}
+
+
+	/*----------------------*/
+	/* text on header-image
+	/*----------------------*/
+
+		.m-latest-dev 								{position:relative;
+			.header									{position: absolute;bottom:50px;left:40px;color:@white;}
+			a 										{color:@white;padding-top:20px;display:block;}
+		}
+
+
+	/*-----------------------------*/
+	/* Media(bootstrap compornent)
+	/*-----------------------------*/
+
+		.media{
+			img{border:1px solid @gray;}
+			.media-image 		{margin-bottom:15px;}//?
+			.media-sub-heading{
+			color:@gray;
+			padding-bottom:15px;
+			padding-top:0px;
+			}
+			h3 {font-size:20px;}
+		}
+
+
+	/*-----------------*/
+	/* Weather
+	/*-----------------*/
+
+		@m-weather-position:150px;
+		.m-weather-wrapper 							{height:@m-weather-position;}
+		.m-weather-info 							{position:absolute;top:-@m-weather-position;right:0;text-align:center;background:@white;border:1px solid @gray;
+			.header 								{padding:12px;background:@black;color:@white;}
+			.contents 								{padding:18px 15px 20px 15px;
+				.m-section 							{padding:0 40px;
+					.temperature 					{font-size:30px;}
+				}
+			}
+			hr 										{margin:15px 0;}
+			li 										{padding:3px 0;}
+		}
+		.m-weather{
+			// .main-info 							{width:50%;margin:0 auto;padding-top:10px;padding-bottom:10px;}
+			img 									{vertical-align: top;}
+			.weather-icon							{padding-right:10px;}
+			.temperature 							{font-size:30px;}
+			.m-weather-area 						{line-height: 2;}
+		}
+	/*-----------------*/
+	/* Photo-gutter
+	/*-----------------*/
+
+	//colを　image-tile 風にする
+		//padding6になったので　数値を　3に変更
+		.photo-gutter-5{
+			margin:-2.5px;
+			& [class*='col-'] {
+				padding:2.5px;
+			}
+		}
+		.photo-gutter-0{
+			margin:0px;
+			.row{margin:0px;}
+			& [class*='col-'] {
+				padding:0px;
+			}
+		}
+
+
+	/*-----------------*/
+	/* m-paragraph
+	/*-----------------*/
+
+		.m-paragraph 						{margin-top:-20px;
+			.paragraph-text 				{padding-top:20px;}
+		}
+
+
+	/*-----------------*/
+	/* m-bottom-link
+	/*-----------------*/
+
+		.m-bottom-link 						{display:block;margin-top:@module-padding-lg;}
+
+
+	/*-----------------*/
+	/* m-title-section
+	/*-----------------*/
+
+		.m-title-section{
+			text-align:center;
+			.title-section-text 			{padding-top:@section-padding-xs+2px;}
+		}
+
+
+	/*-----------------*/
+	/* m-compare
+	/*-----------------*/
+
+		.m-compare{
+			.media-sub-title 				{color:@gray;}
+		}
+
+
+	/*-----------------*/
+	/* m-contents-list
+	/*-----------------*/
+
+		.m-contents-list{
+			.contents-list-label{}
+			.contents-list-timestamp{color:@gray;}
+			.contents-list-title{}
+			// .contents-list-text{padding-top:24px;}
+			// .contents-list-link{display:block;padding-top:24px;}
+		}
+
+
+	/*-----------------*/
+	/* m-job-list
+	/*-----------------*/
+
+		.m-job-list{
+			padding-top:35px;padding-bottom:35px;
+			border-bottom:1px solid @gray;
+
+			.job{}
+			.job-title{}
+			.job-area{}
+			.position{}
+			.position-title{}
+			.position-text{padding-top:24px;}
+			.position-link{display:block;padding-top:24px;}
+		}
+
+		//jobs jobs-listのボーダーが重ならないbottomだけ設定　一番上はsectionのボーダー設定で表示
+		//難しいので　job-listに　first-childを設定
+		.m-job-list:first-child{border-top:1px solid @gray;}
+
+
+	/*-----------------*/
+	/* btn
+	/*-----------------*/
+
+		.btn-job {width:212px;
+			// margin-top:24px;
+		}
+
+
+	/*---------------------------*/
+	/* m-image-text-area(common)
+	/*---------------------------*/
+
+		//common
+		.m-image-text-area {position:absolute;bottom:20px;left:20px;color:@white;
+			.image-text-area-title{}
+			.image-text-area-text {}
+		}
+
+
+	/*---------------------------*/
+	/* m-image-text-area(custome)
+	/*---------------------------*/
+
+		//team
+		#team .m-image-text-area {position:absolute;bottom:20px;left:20px;color:@white;
+			.image-text-area-title{}
+			.image-text-area-text {}
+		}
+		//destinationList
+		#destination-list .m-image-text-area {position:absolute;bottom:40px;left:30px;color:@white;
+			.image-text-area-title{}
+			.image-text-area-text {}
+		}
+	/*-----------------*/
+	/* m-media-block
+	/*-----------------*/
+
+		.m-media-block{
+			.block 									{width:50%;float:left;position:relative;}
+			.block-img{}
+			.block-text 							{margin-top:6%;padding-left:100/12%;padding-right:100/12%;}
+		}
+		@media (min-width:531px) and (max-width:767px){
+			.m-media-block{
+				.text-area-text 						{padding-top:1% !important;}
+				.text-area-link 						{padding-top:1% !important;}
+				.block 									{}
+				.block-img 								{}
+				.block-text 							{margin-top:3%;padding:0 2%;}
+			}
+		}
+		@media(max-width:530px){
+			.block 										{width:100% !important;}
+			.block-text 								{padding-bottom:35px;}
+			.flip-horizonal{
+				.block 									{left:0 !important;right:0 !important;}
+			}
+		}
+		.flip-horizonal{
+			.block:first-child						{left:50%;}
+			.block 									{right:50%;}
+		}
+
+
+	/*-----------------*/
+	/* text-area
+	/*-----------------*/
+
+		.m-text-area 								{margin-top:-30px;}
+			.text-area-block						{padding-top:30px;
+				.text-area-title 					{font-weight:bold;}
+				.text-area-text 					{padding-top:0;}
+			}
+			.text-area-title 						{}
+			.text-area-text 						{margin-top:30px;}//{padding-top:28px !important;}//{padding-top:28px !important;}//importantつけなきゃいけないシーンはどこ？
+			.text-area-link 						{display:block;padding-top:20px;}
+
+		.m-title-area　								{padding-top:@section-padding-md;
+			.title-area-label 						{padding-bottom:30px;color:gray;}
+			.title-area-title 						{}
+			.text 									{padding-top:30px;}//下に名前修正
+			.title-area-text 						{padding-top:30px;}//仮設定
+			.title-area-timestamp 					{padding-top:20px;}
+		}
+		ul.list-s 									{margin-top:-5px;
+			li 										{padding-top:5px;padding-bottom:5px;}
+		}
+
+
+	/*-----------------*/
+	/* m-media(common)
+	/*-----------------*/
+
+		// .m-media{border:1px solid;}//dev
+		.m-media-wrapper{text-align:center;}
+		.m-media{
+			@mediapadding-lg:24px;//title-top,brand-top
+			@mediapadding-md:18px;//text-top
+			@mediapadding-sm:15px;//list型
+			@mediapadding-xs:12px;//label
+			line-height:0.8;
+			.media-text								{line-height:1.2;}
+			position:relative;
+			text-align:left;
+			display:inline-block;
+			img 									{display:inline-block;}
+			.media-image-link 						{display:inline-block;}
+			//media parts
+			.media-contents 						{word-wrap:break-word;}
+			//label-section
+			.media-label 	 						{padding-top:@mediapadding-xs;color:@gray;}//colorは別でも良いかも
+			//title-section
+			.media-title 							{padding-top:@mediapadding-lg;}
+			.media-brand 							{padding-top:@mediapadding-lg;color:@gray;}
+			//text-section
+			.media-text 							{padding-top:@mediapadding-md;display:inline-block;}
+			.media-link 							{padding-top:15px;width:100%;display:block;}//指定不明
+			.media-price 							{padding-top:@mediapadding-sm;}
+			.media-name 							{display:inline-block;}
+			.media-timestamp 						{padding-top:24px;}
+			//list-section
+			.media-list 							{padding-top:@mediapadding-lg;margin-top:-@mediapadding-sm;
+				li 									{padding-top:@mediapadding-sm;
+					* 								{font-size:15px; padding:0;}
+				}
+			}
+			//特に指定なし
+			.media-time 							{}
+			.media-property 						{}
+			.media-image 							{}
+			//custome
+			.media-caption							{width:100%;text-align: center;border-bottom:2px solid @textblack;padding:10px 0;}
+			// .media-title.media-name.media-link 		{padding-top:@mediapadding-xs;}
+			// .media-small-title						{font-size:15px;font-weight: bold;padding-top:20px;padding-bottom:20px;}
+			// .media-sub-title 						{padding-top:5px;}//使われていない！？
+		}
+
+
+
+	/*-----------------*/
+	/* m-media Custome
+	/*-----------------*/
+		.m-media-nearby{
+			.media-brand									{color:@gray;}//全部今日か？
+		}
+		.m-media-center-circle,
+		.m-media-center,
+		.m-media-wedding									{text-align:center !important;}
+
+		.m-rooms{
+			img 											{border:1px solid @gray;}
+			p   											{padding-top:20px;}
+		}
+		@media (min-width:1024px) {
+			.m-rooms .btn-reserve 							{position:absolute;bottom:0;right:0px;width:7em;}
+		}
+		@media (max-width:1023px) and (min-width:768px){
+			.m-rooms .btn-reserve 							{width:7em;}
+		}
+		@media (max-width:767px){
+			.m-rooms p 										{padding-top:0;height:3em;}
+		}
+
+	/*---------------*/
+	/* Section-Title
+	/*---------------*/
+
+		.l-header-title 									{margin-top:55px;}
+		.l-header-text 										{margin-top:20px;margin-bottom:55px;}
+
+
+	/*---------------*/
+	/* Local-Nav
+	/*---------------*/
+
+		.l-section-about-local-nav 							{padding-top:55px;padding-bottom:40px;}
+		.nav-pills-custome{
+			a 												{color:@gray;
+				&:hover,&:focus 							{color:@blue;background:none;}
+			}
+			.nav>li>a 										{padding-left:0;}
+			.btn-rsv 										{text-align:center;padding: 10px 1em;color: white;background: @black;font-size: 15px;text-decoration: none;cursor: pointer;
+				a 											{color:@white;display:block;height:100%;}
+			}
+		}
+
+
+	/*---------------*/
+	/* Section-Header
+	/*---------------*/
+
+		@media (min-width:768px){
+			.section-header-title{
+				h2 											{font-size: 23px;.merriweather();color:@textblack;}
+			}
+		}
+		@media (max-width:767px){
+			.section-header-title{
+				h2 											{font-size: 15px;font-weight:bold;.merriweather();color:@textblack;}
+			}
+			h3 												{font-size: 15px;font-weight:bold;}
+		}
+		.section-header-text								{margin-top:24px;}
+		.section-header-link								{margin-top:24px;}
+
+
+	/*-------------*/
+	/* Top Mess
+	/*-------------*/
+
+		.l-headerarea										{position:relative;}
+		.top-mess-area										{position:absolute;}
+		.top-mess,
+		.top-mess-dev 										{position:absolute;width:100%;}
+		.top-mess-area,
+		.top-mess-dev 										{left:20px;}
+
+		.top-mess,
+		.top-mess-dev,
+		.top-mess-area{
+			.text 											{padding-top:20px;}
+		}
+		@media (min-width: 1041px) {
+			 .top-mess 										{bottom:80px;}
+			 .top-mess-area 								{bottom:50px;}
+			 .top-mess-dev 									{bottom:20px;}
+		}
+		//スマホ タブレット以外
+		@media (min-width:768px) and (max-width:1040px) {
+			.top-mess 										{bottom:50px;}
+			.top-mess-area 									{bottom:50px;}
+			.top-mess-dev 									{bottom:20px;}
+		}
+		//スマホ　タブレットのみ
+		@media (max-width:767px) {
+			.top-mess 										{bottom:20px;}
+			.top-mess-area 									{bottom:25px;}
+			.top-mess-dev 									{bottom:0px;}
+		}
+
+		//index の　top-mess の位置調整
+		@media (min-width:768){
+			.top-mess {top:40%;}
+		}
+
+
+	/*-------------*/
+	/* Local_nav
+	/*-------------*/
+
+		.local-nav-wrapper 									{border-bottom:1px solid #9b9b9b;}
+		.local-nav 											{padding-top:12px;padding-bottom:12px;
+			.local-nav-left-link 							{padding-right:64px;}
+			.local-nav-left-link:hover 						{background:none;}
+			.local-nav-left-link:focus 						{background:none;}
+			.local-nav-right-link:hover 					{background:none;}
+			.local-nav-right-link:focus 					{background:none;}
+		}
+
+
+	/*-------------*/
+	/* Drawer
+	/*-------------*/
+
+		@drawerWidth: 400px;
+		html,body　											{height:100%;}
+		.overlay　											{position: fixed;z-index:9000;background:rgba(0,0,0,.5);top: 0;width: 100%;height: 100%;display:none;}
+		.drawer　											{position: fixed;z-index:9999;right:0;/*right:-@drawerWidth - 20px;*/top:0;width: @drawerWidth;display:none;height: 100%;background: #eee;box-shadow: 0 10px 50px 0px;-webkit-box-shadow: 0 10px 50px 0px;-moz-box-shadow: 0 10px 50px 0px;-o-box-shadow: 0 10px 50px 0px;-ms-box-shadow: 0 10px 50px 0px;}
+		.drawer ul 											{margin:0;padding:0;}
+		.drawer-menu　										{margin:0 0 0 30px;padding:0;}
+		.drawer .glyphicon-user 							{margin:0 20px 18px 0;}
+		.drawer-header li 									{border-bottom:2px solid @gray;margin-bottom:30px;}
+		.drawer-contents li 								{margin:5px 0 5px 0;padding:5px 0 5px 0;}
+		@media (max-width:767px){
+			.drawer											{padding:64px 20px 0 20px;}
+		}
+		@media (min-width:768px){
+			.drawer											{padding:64px 45px 0 45px;}
+		}
+
+
+
+// =====================================
+// 				Layout
+// =====================================
+
+	/*-------------*/
+	/*  Title-area
+	/*-------------*/
+
+		#news-specialoffers,
+		#news-specialoffer-article,
+		#jobs,
+		#position-detail{
+			.m-title-area{padding-top:0;}//issue: title-section とかぶっている　どちらか一方
+		}
+
+	/*-------------*/
+	/*  Footer
+	/*-------------*/
+
+		#site-footer 										{background:@black;color:@white;
+			h4　												{margin-bottom:20px;}
+			a 												{color:@white;}
+			// .sns img　										{margin-right:24px;}
+			.copyright										{margin-top:120px;}
+		}
+		@media(max-width:767px){
+			#site-footer 									{padding-top:30px;padding-bottom:30px;}
+			.footer-link									{margin-top:30px;margin-bottom:30px;
+				li 											{padding-top:5px;padding-bottom:5px;}
+			}
+		}
+		@media(min-width:768px){
+			#site-footer 									{padding-top:60px;padding-bottom:60px;}
+		}
+
+
+	/*-------------*/
+	/*  Mixin
+	/*-------------*/
+
+		.add-hr-border() 							{content:" ";display:block;position:relative;float:left;border-top:1px solid @gray;width:100%;}
+		.trim-border() 								{}
+
+
+	/*-------------*/
+	/* grid option
+	/*-------------*/
+
+		//画像がgutter分縮まるのを防ぐ
+		.fluid-photos 								{padding-left:0;padding-right:0;}
+		.l-sub-section-fluid-photos					{overflow:hidden;border:1px solid transparent;}
+
+		//これ以下のガーター設定を無効にする
+		.gutter-off 								{margin-left:0;margin-right:0;
+			.row 									{margin-left:0;margin-right:0;}
+			.col 									{padding-left:0;padding-right:0;}
+		}
+
+		//nearbyなどデザイン上containerを分ける場合 section:last:childに対して副作用があるので修正
+		//area-top(destination)
+		#site-sub-footer　							{margin-top:-20px;/*margin-top:65px;*/background:@bggray;}
+
+
+	/*----------------*/
+	/* Section-Wrapper
+	/*----------------*/
+
+		//hotelpage imgtop-bottom
+		.l-section-wrapper{//baseをボーダーがある設定にしているので、ホテルページだけ打ち消し
+			.col-lg-10 .l-section:first-child 		{padding-top:0;}
+			.col-lg-8 .l-section:first-child 		{padding-top:0;}
+			.l-section-side .l-section 				{padding-top:0;}
+		}
+
+
+	/*-------------*/
+	/* Section
+	/*-------------*/
+
+		/*page top || topimage bottom*/
+
+		//header - main 間
+		.l-section-wrapper 							{padding-top:@section-padding-sm;}
+		.l-title-section+.l-section 				{padding-top:@section-padding-sm;}
+
+		//l-section
+		.container .l-section:only-child 			{padding-bottom:@section-padding-md;}
+		.l-section:first-child 						{padding-top:@section-padding-sm;}//title-section bottom
+		.l-section 									{padding-top:@section-padding-md;}
+		.l-section > .l-sub-section:first-child 	{padding-top:0;}
+		.l-sub-section-border-top::before 			{content:" ";display:block;position:relative;border-top:1px solid @gray;padding-bottom:@section-padding-sm;}
+
+		//l-sub-section
+		.l-section > .l-sub-section 				{padding-top:@section-padding-sm}
+
+		//l-sub-section-contents//overview　タイトルのないセクションは無い想定だったので副作用が発生
+		// .l-sub-section-contents						{padding-top:@section-padding-sm;}
+		//title-section
+		.l-title-section 							{padding-top:@section-padding-md;}
+		.l-header{//page-topのロジックだったが　デザイン変更により検討中
+			// .l-sub-section:first-child 		{padding-top:0;}//page top のpadding
+			// .l-sub-section					{padding-top:55px;}
+			// .col-lg-10:first-child,
+			// .col-md-10:first-child,
+			// .col-sm-10:first-child			{padding-top:44px;}
+			// .col-lg-8:first-child,
+			// .col-md-8:first-child,
+			// .col-sm-8:first-child			{padding-top:44px;}
+		}
+
+
+	/*-------------*/
+	/* Module
+	/*-------------*/
+
+		/*module*/
+		.m-section:first-child 						{margin-top:-@module-padding-lg;}
+		.m-sub-section 								{margin-top:@module-padding-lg;}
+
+
+	/*-------------*/
+	/* Side-Section
+	/*-------------*/
+
+		/*side top bottom*/
+		.sticky{
+			.l-sub-section-side 					{padding-top:35px;}
+			.l-sub-section-side:only-child 			{padding-top:40px;border-top:1px solid @gray;padding-bottom:40px;border-bottom:1px solid @gray;}
+			.l-sub-section-side:first-child 		{padding-top:40px;border-top:1px solid @gray;}
+			.l-sub-section-side:last-child 			{padding-bottom:40px;border-bottom:1px solid @gray;}
+		}
+
+		//仮mobile設定
+		.l-section-side > .l-section{
+			.l-sub-section-side 					{padding-top:35px;}
+			.l-sub-section-side:only-child 			{padding-top:40px;border-top:1px solid @gray;padding-bottom:40px;border-bottom:1px solid @gray;}
+			.l-sub-section-side:first-child 		{padding-top:40px;border-top:1px solid @gray;}
+			.l-sub-section-side:last-child 			{padding-bottom:40px;border-bottom:1px solid @gray;}
+		}
+
+		.l-section-side{
+			.l-section 								{padding-top:@section-padding-sm;}
+			.l-sub-section-side 					{padding-top:15px;}
+			.side-header 							{}
+			.side-contents 							{padding-top:15px;}
+			.side-link 								{padding-top:15px;}
+			.hr-side 								{margin-top:20px;}
+		}
+
+
+	/*---------------*/
+	/* Header-section
+	/*---------------*/
+
+		.l-header > .l-sub-section:first-child 		{padding-top:0;}
+		.l-header > .l-sub-section 					{padding-top:@section-padding-sm;}
+
+
+	/*---------------*/
+	/* Page Bottom
+	/*---------------*/
+
+		.container > .l-section-wrapper:last-child > div > .l-section:last-child {padding-bottom:@section-padding-lg;}
+		.container .l-section:last-child			{padding-bottom:@section-padding-lg;}
+		.container .l-section:only-child			{padding-bottom:@section-padding-lg;}
+		.l-sectoin-main{
+			& > .l-section:last-child 				{padding-bottom:@section-padding-lg;}
+		}
+
+
+	/*---------------*/
+	/* Multi-Sections
+	/*---------------*/
+
+		.l-multi-sections .l-section:last-child 	{padding-bottom:0px !important;}
+
+
+	/*---------------*/
+	/* Responsive
+	/*---------------*/
+
+		.l-section-main.col-lg-10,
+		.l-section-main.col-md-10,
+		.l-section-main.col-sm-10{
+			& > .l-section:first-child{
+				.l-sub-section:first-child 			{padding-top:@section-padding-md-col10}
+			}
+		}
+		.l-section-main.col-lg-8,
+		.l-section-main.col-md-8,
+		.l-section-main.col-sm-8{
+			& > .l-section:first-child{
+				.l-sub-section:first-child 			{padding-top:@section-padding-md-col8;}
+			}
+		}
+		.l-section-main.col-lg-4,
+		.l-section-main.col-md-4,
+		.l-section-main.col-sm-4{
+			> .l-section:first-child{
+				.l-sub-section:first-child 			{padding-top:@section-padding-md-col4;}
+			}
+		}
+
+		.l-section-main.col-lg-2,
+		.l-section-main.col-md-2,
+		.l-section-main.col-sm-2{
+			> .l-section:first-child{
+				.l-sub-section:first-child 			{padding-top:@section-padding-md-col2;}
+			}
+		}
+
+
+	/*-------------*/
+	/* Border
+	/*-------------*/
+
+		.bottom-border::after{content:" ";display:block;float:left;width:100%;border-bottom:1px solid @gray;
+								margin-top:50px;margin-left:12px;}
+		.bottom-border::before{content:" ";display:block;position:absolute;bottom:0;right:0;width:12px;border-bottom:1px solid white;margin-top:50px;margin-left:12px;}
+
+		.col-lg-10,
+		.col-md-10,
+		.col-sm-10{　　　　　　　　　　　　
+			.bottom-border::after{content:" ";display:block;float:left;width:100%;border-bottom:1px solid @gray;margin-top:42px;margin-left:12px;}
+			.bottom-border::before{content:" ";display:block;position:absolute;bottom:0;right:0;width:12px;border-bottom:1px solid white;margin-top:42px;margin-left:12px;}
+		}
+
+		//hoteltopだけ例外なので注意 左にサイドセクションがある場合　のロジックで解決
+		.l-section-side+.l-section-main > .l-section:first-child .l-sub-section:first-child::before {border:none;padding-bottom:0;}
+		//overview　関連ページで　タイトルセクションとメインセクションがボーダーで仕切られている場合( press,develop,management,consultation 共通 )
+		// .l-section-main > .l-section:first-child .l-sub-section:first-child 		{border-top:1px solid @gray;padding-top:@section-padding-md;}
+		.l-section-main > .l-section:first-child .l-sub-section:first-child::before {.add-hr-border();padding-bottom:40px;}
+		//この場合 col8>section:first-childと副作用が起こるので上書き
+		.l-section-main > .l-section:first-child .l-sub-section:first-child {padding-top:0 !important;}
+
+
+	/*-------------*/
+	/*  <hr>
+	/*-------------*/
+
+		.hr-f{float:left;position:relative;width:100%;}
+		@media (min-width:768px){
+			.hr {margin-top:50px;}
+			.hr-m {margin-top:40px;}
+			.hr-s { margin-top:20px;}
+			.hr-xs { margin-top:20px;margin-bottom:20px;}
+			.hr-20-40{margin-top:20px;margin-bottom:40px;}
+
+			//colに合わせて変更
+			.col-lg-10,
+			.col-md-10,
+			.col-sm-10{
+				.hr {margin-top:@section-padding-md-col10;}
+				// .hr-m {margin-top:40px;}
+				// .hr-s { margin-top:20px;}
+				// .hr-xs { margin-top:20px;margin-bottom:20px;}
+				// .hr-20-40{margin-top:20px;margin-bottom:40px;}
+			}
+			.col-lg-8,
+			.col-md-8,
+			.col-sm-8{
+				.hr {margin-top:@section-padding-md-col8;}
+				// .hr-m {margin-top:40px;}
+				// .hr-s { margin-top:20px;}
+				// .hr-xs { margin-top:20px;margin-bottom:20px;}
+				// .hr-20-40{margin-top:20px;margin-bottom:40px;}
+			}
+			.col-lg-4,
+			.col-md-4,
+			.col-sm-4{
+				.hr {margin-top:@section-padding-md-col8;}
+				// .hr-m {margin-top:40px;}
+				// .hr-s { margin-top:20px;}
+				// .hr-xs { margin-top:20px;margin-bottom:20px;}
+				// .hr-20-40{margin-top:20px;margin-bottom:40px;}
+			}
+			//#hotel-top custome
+			.l-section-small{
+				.hr {margin-top:42px;}
+				// .hr-m {margin-top:40px;}
+				// .hr-s { margin-top:20px;}
+				// .hr-xs { margin-top:20px;margin-bottom:20px;}
+				// .hr-20-40{margin-top:20px;margin-bottom:40px;}
+			}
+		}
+		@media (max-width:767px){
+			.hr {margin-top:30px;}
+			.hr-m {margin-top:40px;}
+			.hr-s { margin-top:40px;padding-bottom:20px;}
+			.hr-xs { margin-top:20px;margin-bottom:20px;}
+			.hr-20-40{margin-top:20px;margin-bottom:40px;}
+			//#hotel-top custome
+			.l-section-small{
+				.hr {margin-top:30px;}
+				.hr-m {margin-top:40px;}
+				.hr-s { margin-top:40px;padding-bottom:20px;}
+				.hr-xs { margin-top:20px;margin-bottom:20px;}
+				.hr-20-40{margin-top:20px;margin-bottom:40px;}
+			}
+		}
+		.col-lg-10,
+		.col-md-10,
+		.col-sm-10{
+			.l-section 							{padding-top:@section-padding-md-col10;}
+			.m-section:first-child 				{margin-top:-40px;}
+			.m-sub-section 						{margin-top:40px;}
+			.bottom-border::after{content:" ";display:block;float:left;width:100%;border-bottom:1px solid @gray;margin-top:42px;margin-left:12px;}
+			.bottom-border::before{content:" ";display:block;position:absolute;bottom:0;right:0;width:12px;border-bottom:1px solid white;margin-top:42px;margin-left:12px;}
+
+		}
+		.col-lg-8,
+		.col-md-8,
+		.col-sm-8{
+			.l-section 							{padding-top:@section-padding-md-col8;}
+			.m-section:first-child 				{margin-top:-35px;}
+			.m-sub-section 						{margin-top:35px;}
+			.bottom-border::after{content:" ";display:block;float:left;width:100%;border-bottom:1px solid @gray;margin-top:35px;margin-left:12px;}
+			.bottom-border::before{content:" ";display:block;position:absolute;bottom:0;right:0;width:12px;border-bottom:1px solid white;margin-top:35px;margin-left:12px;}
+
+		}
+		.col-lg-8.m-sub-section 						{margin-top:35px;}
+		.col-md-8.m-sub-section 						{margin-top:35px;}
+		.col-sm-8.m-sub-section 						{margin-top:35px;}
+
+
+
+
+
+
+		/*module*/
+		/*dl-list*/
+		.dl-list .dd:last-child{padding-bottom:0;}
+		@media(min-width:768px){
+			.dt{border-top:1px solid @gray;padding-top:35px;}
+			.dd{border-top:1px solid @gray;padding-top:35px;padding-bottom:35px;padding-left:24px !important;}
+			.col-lg-10,
+			.col-md-10,
+			.col-sm-10{
+				.dt{border-top:1px solid @gray;padding-top:@module-padding-sm-col10;}
+				.dd{border-top:1px solid @gray;padding-top:@module-padding-sm-col10;padding-bottom:@module-padding-sm-col10;padding-left:24px !important;}
+			}
+			.col-lg-8,
+			.col-md-8,
+			.col-sm-8{
+				.dt{border-top:1px solid @gray;padding-top:@module-padding-sm-col8;}
+				.dd{border-top:1px solid @gray;padding-top:@module-padding-sm-col8;padding-bottom:@module-padding-sm-col8;padding-left:24px !important;}
+			}
+		}
+		@media(max-width:767px){
+			.dt{border-top:1px solid @gray;padding-top:35px;}
+			.dd{border-top:1px solid @gray;padding-top:35px;padding-bottom:35px;padding-left:24px !important;}
+			.col-lg-10,
+			.col-md-10,
+			.col-sm-10{
+				.dt{border-top:1px solid @gray;padding-top:@module-padding-sm-col10;}
+				.dd{border-top:1px solid @gray;padding-top:@module-padding-sm-col10;padding-bottom:@module-padding-sm-col10;padding-left:24px !important;}
+			}
+			.col-lg-8,
+			.col-md-8,
+			.col-sm-8{
+				.dt{border-top:1px solid @gray;padding-top:@module-padding-sm-col8;}
+				.dd{border-top:1px solid @gray;padding-top:@module-padding-sm-col8;padding-bottom:@module-padding-sm-col8;padding-left:24px !important;}
+			}
+
+		}
+		//　issue:uat と名前がダブっているので変更したほうがいい
+		.no-border{
+			.l-sub-section-side{padding-top:none !important;}
+			.l-sub-section-side:only-child{border:none;padding-top:0 !important;}
+			.l-sub-section-side:first-child{border:none;padding-top:0 !important;}
+			.l-sub-section-side:last-child{border:none !important;}
+			.l-section-main > .l-section:first-child .l-sub-section:first-child{border:none;padding-top:0;}
+		}
+
+		.l-headerarea-title					{color:@white;position:absolute;bottom:50px;left:50px;font-size:48px;}
+
+
+
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//
+// 				RESPONSIVE
+//
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+// =====================================
+// 				Desktop > 1024
+// =====================================
+
+	@media (min-width: 1041px) {
+		.drawer-container 				{
+								padding-left:53px;padding-right:53px;max-width:1024px;
+								margin:auto;
+		}
+		.header-container 		{width:1024px;margin:0 auto;}
+	}
+
+
+
+// =====================================
+// 				Desktop
+// =====================================
+
+	@media (min-width:768px) {
+		.r-border 				{border-right:1px solid @gray;}
+		.separator-left 			{padding-left:11.5px;
+			& > .col 				{border-left:1px solid @gray;padding-left:23px;}
+		}
+		// .section-news 			{padding-left:24px;}
+		#g_nav,#site-footer{
+			.logo  			{width:240px;padding-right:20px;margin-top:-6px;border-right:1px solid @gray;}
+		}
+		#g_nav 					{height:64px;padding:20px 30px;}
+	}
+
+
+// =====================================
+// 			mobile Tablet
+// =====================================
+
+	@media (max-width:767px) {
+		.logo-wrapper 			{width:50%;}
+		.logo 					{width:130px;margin-top:0px;}
+		#g_nav 					{height:64px;padding:20px 17px;}
+		// .header-mess			{position:absolute;bottom:450px;left:50%;width:250px;margin-left:-125px;display:hidden;}
+		.section .img-responsive{margin:0 auto;}
+		// .col 					{margin-top:20px;}
+		.section 				{border-bottom:1px solid @lightgray;margin-bottom:40px;padding-bottom:20px;}
+
+	}
+
+
+// =====================================
+// 			col 10,8,4,2
+// =====================================
+
+	//...
+
+
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//
+// 				Page Custome
+//
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+// =====================================
+// 				Index
+// =====================================
+
+	.news 						{height:96px;padding-bottom:24px;margin-bottom:10px;}
+	@media(min-width:768px){
+		.news					{border-bottom:1px solid @gray;}
+	}
+
+
+	#mystays {
+		.l-section{padding-top:48px;}
+		.l-sub-section-contents{padding-top:40px;}
+		.l-section-header-text{padding-top:24px;}
+	}
+	#brand-top{
+		// .l-section:first-child 				{padding-top:48px;}
+		// .l-sub-section-contents				{padding-top:40px;}
+		// .section-header-text 				{padding-bottom:5px;}
+		// .hr 								{margin-top:65px;}
+	}
+
+
+// =====================================
+// 				Hotel Page
+// =====================================
+
+	//main,sideのある　top-img bottom が40px なので　50px に上書き
+	#hotel-top .l-section-wrapper 		{padding-top:50px;}
+
+	//画像を画面幅一杯のレスポンシブ仕様にする
+	.l-header .img-responsive 			{width:100%;}
+
+	//hotel-detailのcol幅をDeveloperNotesに合わせる
+	@media(min-width:768px){
+		#hotel-details{
+			.col-lg-2,
+			.col-md-2,
+			.col-sm-2 					{width:20%;}//{width:20.834%;}
+			.col-lg-5,
+			.col-md-5,
+			.col-sm-5 					{width:40%;}
+			.col-lg-10,
+			.col-md-10,
+			.col-sm-10 					{width:80%;}
+		}
+	}
+
+	//hotelpageの予約モジュールをセクションの大きさに合わせる
+	.l-sub-section{
+		#rsv-module 								{width:100%;padding:0;
+			//各メニューの幅
+			.group1 /*Select City Propaty 	*/		{width:26%;position: static;}
+			.group2 /*Check In 				*/		{width:18%;position: static;}
+			.group3 /*Check Out 			*/		{width:18%;position: static;}
+			.group4 /*Adult 				*/		{width:18%;position: static;}
+			.group5 /*Check Rates 			*/		{width:20%;height:54px;position: static;}
+		}
+	}
+
+
+// =====================================
+// 				Hotel List
+// =====================================
+
+	/*-------------*/
+	/* Search-area
+	/*-------------*/
+
+		#searcharea{
+				@height:150px;
+				@v-padding:30px;
+				@selectbox-v-padding: ((@height - @v-padding * 2) - 40px) /2;
+				//uat 設定
+				// height:@height;padding:@v-padding 0;
+				padding-top:40px;padding-bottom:40px;
+
+				// .currency 								{margin-top:15px;}
+				// .sortby 								{margin-top:15px;margin-bottom:20px;}
+				// .select 								{width:5em;display:block;float:left;margin-top:16px;}
+
+
+		/*----------------*/
+		/* Select2 Plugin
+		/*----------------*/
+
+			.selectbox 									{padding:@selectbox-v-padding 0;}
+			.select2-selection__clear 					{display:none;}
+			.select2-container 							{margin-right:20px;}
+			.select2-container,
+			.select2-selection 							{@height:40px;height:@height !important;
+				.select2-selection__rendered 			{line-height:@height - 2px !important;
+				}
+			}
+			.select2-container--default{
+				.select2-selection--single{ 			// caret のアイコンを変更
+					.select2-selection__arrow b 		{@width:15px;border:none !important;width:@width;height:10px;background-image:url('../images/buttons & icons/dropdown@2x.png') !important;background-size:contain;background-repeat:no-repeat;margin-left:-@width;margin-top:0px;
+					}
+				}
+			}
+			.select2-container--default.select2-container--open{
+				.select2-selection--single{ 			// 展開時の　caretアイコンを指定
+					.select2-selection__arrow b 		{background-image:url('../images/buttons & icons/dropdown@2x.png');
+					}
+				}
+			}
+		}
+
+
+
+
+// =====================================
+// 				Area List
+// =====================================
+
+	@media(min-width:768px){
+		.m-arealist{
+			.arealist-text{padding-top:10px;}
+			.arealist-weather-header{padding-top:20px;}
+			.main-info{padding-top:10px;}
+			.what-to-wear{padding-top:10px;}
+		}
+	}
+
+
+
+// =====================================
+// 				Over View
+// =====================================
+
+	#overview{
+		//overviewだけg_navのデザインが違うので修正
+		#g_nav							{position:absolute;z-index:9999;width:100%;border:none;color:white;}
+		.search 						{background:none;}
+		.header-area 					{height:400px;}
+		.top-mess{
+			top:40%;
+			.header  					{font-size:15px;}
+			.text 						{width:80%;margin:0 auto;}
+
+			.arrow 						{display:block;}
+		}
+		.top-mess-link 					{position:absolute;width:100%;bottom:20px;text-align:center;}
+		.link                           {color:@white;}
+		//内容が異なるわけではないので　cssでボーダーを設定
+		.media::after					{content:" ";display:block;float:left;width:100%;border-bottom:1px solid @gray;margin-top:@module-padding-md !important;margin-left:12px;}
+		.media::before 					{content:" ";display:block;position:absolute;bottom:0;right:0;width:12px;border-bottom:1px solid white;margin-top:@module-padding-md !important;margin-left:12px;}
+	}
+
+
+
+// =====================================
+// 			AttractionList
+// =====================================
+
+	//img-responsiveのbottomとボーダーのラインを合わせる
+	@media(min-width:768px){
+		.image-list-img::after 			{content:" ";display:block;border-bottom:1px solid @gray;width:100%;margin-left:100%;width:140%;position:relative;left:24px;}
+	}
+	//articleではボーダーが無いので打ち消し
+	@media(min-width:768px){
+		#attraction-article .image-list-img::after {border:none;}
+	}
+
+
+
+// =====================================
+// 		News-SpecialOffers-article
+// =====================================
+
+	//newsSpecial-article の数値だけ55pxなので修正
+	#news-specialoffer-article{
+		.l-title-section+.l-section{padding-top:55px;}
+	}
+
+
+
+// =====================================
+// 			Jobs-Detail
+// =====================================
+
+	//job-detailのセクションが40なので修正
+	#position-detail{
+		.l-section{padding-top:40px;}
+	}
+
+
+
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//
+// 				削除予定
+//
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+// //hotelResults -> hotelList に変更？
+// 	/*-------------*/
+// 	/* Hotel Results
+// 	/*-------------*/
+// 		//削除しても大丈夫？
+// 		.hotellist-text 		{margin-top:15px;}
+
+
+// //Area-List(Destination-List)デザイン変更のため
+// .l-section-container 				{padding-top:25px;
+// 	.section-header-title{
+// 		h2{font-size: 23px;.merriweather();color:@textblack;}
+// 	}
+// 	.section-header-text			{margin-top:14px;}
+// 	.section-header-link			{margin-top:14px;}
+// 	.l-sub-section-fluid-photos		{overflow:hidden;border:1px solid transparent;}
+// 	.l-sub-section-contents			{padding-top:20px;}
+// }
+// .l-sub-section-btn 				{margin-top:20px;}
+// #area-top {
+// 	.what-to-wear div 								{float:left;
+// 	}
+// }
+
+
+// //Paddingが変更になる可能性が高いため
+// //#hotel-top custome
+// 	.l-section-small{　					//削除予定
+// 		.l-section 						{padding-top:42px;}
+// 		.l-section-middle 				{padding-top:50px !important;}
+// 	}
+
+
+// //現在未使用
+// .m-header-img-section500{
+// 	@height: 100%; // 918/2  正方形にするため
+// 	& > [class*='col-'] {
+// 		height:@height;
+// 		& [class*='col-'] {
+// 			height:@height/2;
+// 		}
+// 	}
+// }
+
+
+// //データ埋め込みロジックの使用により　未使用
+// /*layout option*/
+// .col2 li 				{width:49%;}
+
+
+// //about -> overview　に変更のため　未使用
+// .m-hotel-list{
+// 	li 										{padding-top:10px;}
+// }
+
+
+
+// //未使用ページのみ使用
+// .m-list-s 									{margin-top:-10px;
+// 	li 										{padding-top:10px;}
+// }
+// .m-list-m									{margin-top:-20px;
+// 	li 										{padding-top:20px;}
+// }
+
+
+// //たぶん未使用　削除希望
+// #hotel-info{
+// 		.header-text{.merriweather();font-size:23px;color:@gray;}
+// 		p 			{.proximanova-s();color:@textblack;}　//fontにまとめる
+// 		p 			{padding-bottom:10px;}
+// }
+// #hotel-details{
+// 	.tab 								{padding-bottom:15px;}
+// 	.detail-header						{color:@gray;}
+// 	.detail-list 						{
+// 		li 								{
+//                padding-top:5px;
+//                padding-bottom:5px;
+//                img {
+//                                float:left;
+//                }
+//                p               {text-align: right;
+//                                display:inline-block;
+//                                padding: 0;
+//                                padding-left:5px;
+//                }
+// 		}
+// 	}
+// 	// hr 									{margin-top:20px;margin-bottom:20px;}
+// 	.panel-title a 						{padding-bottom:10px;}
+// }
+// #hotel-header{
+// 		address 		{padding-top:10px;}
+// }
+
+// //hotel.jadeでのみ使用　削除希望
+// .no-padding{padding:0 !important;}
+
+
+// //hotelpageの予約モジュールだったがデザイン変更で無くなる
+// #rsv-module-s								{.dropdown-ini;
+// 	.header 				{.proximanova();font-size:25px;color:@lightgray;}
+// 											color:@lightgray;
+// 											width:290px;height:265px;background:@white;/*dev*/border:1px solid @lightgray;
+// 											position:absolute;right:53px;bottom:-230px;
+
+// 		button 								{border-radius: 4px !important;border:1px solid;
+// 											padding-left:20px;padding-right:30px;margin:5px 5px;
+// 											height:40px;
+
+// 		&:hover 							{border-color:@blue;}
+// 		}
+// 		.header								{padding:15px 0;}
+// 		.select3.btn-group 					{display:block;
+
+// 		}
+// }
+// #rsv-module-s .header 				{.proximanova();font-size:25px;color:@lightgray;}
